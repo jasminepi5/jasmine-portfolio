@@ -1,0 +1,74 @@
+baseURL: "https://example.org/"
+locale: "en-us"
+title: "Welcome!"
+theme: "hugo-PaperMod"
+
+params:
+    defaultTheme: light
+    # defaultTheme: auto
+
+    homeInfoParams:
+        Title: Hi 👋
+        Content: "TODO: Add home info content here..."
+
+    # Link to other socials/ways to contact
+    socialIcons: # optional
+        - name: "GitHub"
+          url: ""
+        - name: "LinkedIn"
+          url: ""
+
+    # If disabled, displays the homeInfoParams
+    profileMode:
+        enabled: false
+        # title: "<Title>" # optional default will be site title
+        subtitle: "This is subtitle"
+        # imageUrl: "" # optional
+        imageTitle: "<title of image as alt>" # optional
+        imageWidth: 120 # custom size
+        imageHeight: 120 # custom size
+        buttons:
+        # - name: Archive
+        #   url: "/archive"
+        - name: Github
+          url: "https://github.com"
+
+    editPost:
+        appendFilePath: false
+
+caches:
+    images:
+        dir: ":cacheDir/images"
+
+# Search functionality uses Fuse.js, read more in docs: 
+# https://github.com/adityatelange/hugo-PaperMod/wiki/Features#default-theme-lightdarkauto 
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # required for search
+
+# Menu
+# sectionPagesMenu: main
+menus:
+    main:
+    - name: Home
+      pageRef: /
+      weight: 5
+    - name: About
+      pageRef: /about
+      weight: 10
+    - name: Projects
+      pageRef: /projects
+      weight: 15
+    - name: Education
+      pageRef: /education
+      weight: 20
+    - name: Certifications
+      pageRef: /certifications
+      weight: 30
+    - name: Search
+      url: /search
+      weight: 40
+
+    # footer:

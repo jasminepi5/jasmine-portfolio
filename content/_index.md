@@ -1,5 +1,5 @@
 ---
-title: "Hi 👋"
+title: "Hello there! 👋"
 ---
 
 I'm Jasmine Irawan — I've just completed a Bachelor of Computer Science at Monash University (graduating October 2026), majoring in Algorithms & Software, with a focus on web and Android development.

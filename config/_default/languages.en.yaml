@@ -1,0 +1,23 @@
+disabled: false
+locale: en
+label: English
+weight: 1
+title: "Welcome!"
+
+params:
+  displayName: EN
+  isoCode: en
+  rtl: false
+  dateFormat: "2 January 2006"
+  # logo: "img/logo.png"
+  # secondaryLogo: "img/secondary-logo.png"
+  # description: "My awesome website"
+  # copyright: "Copy, _right?_ :thinking_face:"
+
+  author:
+    name: "Jasmine Irawan"
+    headline: "Hi 👋"
+    bio: "TODO: Add home info content here..."
+    links:
+      - github: "https://github.com/TODO-add-username"
+      - linkedin: "https://linkedin.com/in/TODO-add-username"

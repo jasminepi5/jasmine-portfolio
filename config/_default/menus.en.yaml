@@ -1,0 +1,28 @@
+# -- Main Menu --
+# The main menu is displayed in the header at the top of the page.
+# Acceptable parameters are name, pageRef, page, url, title, weight.
+
+main:
+  - name: Home
+    pageRef: "/"
+    weight: 5
+
+  - name: About
+    pageRef: "/about"
+    weight: 10
+
+  - name: Projects
+    pageRef: "/projects"
+    weight: 15
+
+  - name: Education
+    pageRef: "/education"
+    weight: 20
+
+  - name: Certifications
+    pageRef: "/certifications"
+    weight: 30
+
+# -- Footer Menu --
+# The footer menu is displayed at the bottom of the page, just before
+# the copyright notice. Configure as per the main menu above.

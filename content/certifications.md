@@ -4,7 +4,7 @@ title: "Certifications & Memberships"
 
 ## Professional memberships
 
-- **ACS Associate Membership** — Australian Computer Society, held as a Monash University student.
+- **Associate Member** — Australian Computer Society (ACS).
 
 ## Clearances
 

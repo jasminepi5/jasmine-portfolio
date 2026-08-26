@@ -1,6 +1,6 @@
 ---
 date: 2026-08-25
-draft: true
+draft: false
 showTableOfContents: true
 title: "Mogo: Android Ridesharing App 🚗"
 summary: "A university capstone Android ridesharing app for Monash students, with live location tracking and a Supabase backend."
@@ -25,3 +25,8 @@ The app isn't published to the Play Store — it was demoed by installing direct
 ## Tech stack
 
 Kotlin, Android Studio, Supabase (PostgreSQL), Google Maps Platform, GitHub Actions, Jira, Lucidchart
+
+## Source
+
+- [My fork](https://github.com/jasminepi5/MoGo) — where I'm continuing the solo refactor.
+- [Original team repository](https://github.com/caileensutedja/MoGo) — the capstone project as built by the team of four.

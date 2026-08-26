@@ -1,6 +1,6 @@
 ---
 date: 2026-07-13
-draft: true
+draft: false
 title: "Monash University | Bachelor of Computer Science"
 summary: "Major: Algorithms & Software (previously called: Advanced Computer Science)"
 tags: ["Java", "Python", "SQL", "JavaScript", "TypeScript", "Kotlin"]

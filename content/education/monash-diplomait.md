@@ -1,6 +1,6 @@
 ---
 date: 2023-06-09
-draft: true
+draft: false
 showTableOfContents: true
 title: "Monash College | Diploma of Information Technology"
 summary: "Specialisation: Computer Science stream"

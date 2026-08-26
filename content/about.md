@@ -10,15 +10,15 @@ I'm mainly interested in web and Android development. Alongside my degree, I've 
 
 ## Skills
 
-**Languages:** Kotlin · Java · Python · JavaScript/TypeScript · SQL · C++ (introductory)
+**Languages:** Kotlin, Java, Python, JavaScript/TypeScript, SQL, C++ (introductory)
 
-**Web & mobile:** Android (MVVM, Android Studio) · Angular · Node.js / Express.js · HTML/CSS
+**Web & mobile:** Android (MVVM, Android Studio), Angular, Node.js / Express.js, HTML/CSS
 
-**Databases:** PostgreSQL (Supabase) · MongoDB · Oracle SQL & PL/SQL · Firebase
+**Databases:** PostgreSQL (Supabase), MongoDB, Oracle SQL & PL/SQL, Firebase
 
-**Tools & practices:** Git, GitHub & GitLab · GitHub Actions (CI/CD) · Jira (Agile/Scrum, Kanban) · Postman · Figma · Lucidchart (UML/ERD) · Pytest
+**Tools & practices:** Git, GitHub, and GitLab; GitHub Actions (CI/CD); Jira (Agile/Scrum, Kanban); Postman; Figma; Lucidchart (UML/ERD); Pytest
 
-**APIs & platforms:** Google Maps Platform (Routes, Places, Maps SDK) · Vercel · Supabase
+**APIs & platforms:** Google Maps Platform (Routes, Places, Maps SDK), Vercel, Supabase
 
 I've also brought AI coding assistants (Claude Code, ChatGPT) into my personal development workflow, alongside the tools above.
 

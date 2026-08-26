@@ -30,4 +30,4 @@ The app isn't published to the Play Store — it was demoed by installing direct
 
 ## Tech stack
 
-Kotlin · Android Studio · Supabase (PostgreSQL) · Google Maps Platform · GitHub Actions · Jira · Lucidchart
+Kotlin, Android Studio, Supabase (PostgreSQL), Google Maps Platform, GitHub Actions, Jira, Lucidchart

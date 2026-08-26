@@ -22,4 +22,4 @@ This project is a work in progress. I'm currently prototyping the design in Figm
 
 ## Tech stack
 
-VS Code · Git & GitHub (version control) · GitHub Actions & Vercel (CI/CD) · Figma (AI-assisted prototyping) · Claude Code (AI coding assistant)
+VS Code, Git & GitHub (version control), GitHub Actions & Vercel (CI/CD), Figma (AI-assisted prototyping), Claude Code (AI coding assistant)

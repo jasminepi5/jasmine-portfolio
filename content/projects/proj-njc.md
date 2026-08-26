@@ -22,4 +22,4 @@ Currently in the Figma prototyping stage. Planned features include an Indonesian
 
 ## Tech stack
 
-VS Code · Git & GitHub (version control) · GitHub Actions & Vercel (CI/CD) · Figma (AI-assisted prototyping) · Claude Code (AI coding assistant)
+VS Code, Git & GitHub (version control), GitHub Actions & Vercel (CI/CD), Figma (AI-assisted prototyping), Claude Code (AI coding assistant)

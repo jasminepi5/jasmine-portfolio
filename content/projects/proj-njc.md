@@ -10,6 +10,7 @@ showPagination: true
 #     caption: "A screenshot of the app's home page."
 title: "Nurul Jasmine Cookies E-commerce Website 🍪🌼"
 summary: "A website concept for a family-owned bakery, with online ordering, Indonesian payments, and bilingual support planned."
+tags: ["Web", "Figma"]
 # weight: 10
 ---
 ## About the project

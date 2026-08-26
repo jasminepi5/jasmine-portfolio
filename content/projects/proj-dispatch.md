@@ -10,6 +10,7 @@ showPagination: true
 #     caption: "A screenshot of the app's home page."
 title: "Superhero Tracker & Subscription Service"
 summary: "A fanmade website inspired by the game Dispatch, where users can subscribe to call in superheroes for help."
+tags: ["Web", "Figma"]
 # weight: 10
 ---
 ## About the project

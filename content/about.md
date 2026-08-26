@@ -20,6 +20,6 @@ I'm mainly interested in web and Android development. Alongside my degree, I've 
 
 **APIs & platforms:** Google Maps Platform (Routes, Places, Maps SDK), Vercel, Supabase
 
-I've also brought AI coding assistants (Claude Code, ChatGPT) into my personal development workflow, alongside the tools above.
+I've also brought Claude Code into my personal development workflow, alongside the tools above.
 
 Have a look through my [projects](/projects/), [education](/education/), and [certifications](/certifications/) pages, or get in touch via the links below.

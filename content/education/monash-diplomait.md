@@ -10,6 +10,7 @@ showPagination: true
 #     caption: "A screenshot of the app's home page."
 title: "Monash College | Diploma of Information Technology"
 summary: "Specialisation: Computer Science stream"
+tags: ["C++", "Python"]
 # weight: 10
 ---
 ## Overview

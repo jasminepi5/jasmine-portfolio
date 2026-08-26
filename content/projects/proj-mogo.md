@@ -10,6 +10,7 @@ showPagination: true
 #     caption: "A screenshot of the app's home page."
 title: "Mogo: Android Ridesharing App 🚗"
 summary: "A university capstone Android ridesharing app for Monash students, with live location tracking and a Supabase backend."
+tags: ["Kotlin", "Android"]
 # weight: 10
 ---
 ## About the project

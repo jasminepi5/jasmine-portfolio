@@ -1,8 +1,10 @@
-name: Build and deploy
+name: Build and deploy (GitHub Pages - manual fallback)
+
+# The site is hosted on Vercel, which deploys automatically on push.
+# This workflow is kept as a fallback: the push trigger is deliberately
+# removed so Pages does not publish a second, competing copy of the site.
+# It can still be run by hand from the Actions tab if Vercel is unavailable.
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 permissions:
   contents: read

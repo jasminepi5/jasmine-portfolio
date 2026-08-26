@@ -3,7 +3,10 @@
 # https://blowfish.page/docs/getting-started/
 
 theme: blowfish
-baseURL: "https://jasminepi5.github.io/jasmine-portfolio/"
+# Production builds override this from vercel.json, using Vercel's
+# VERCEL_PROJECT_PRODUCTION_URL so a custom domain needs no change here.
+# This value is what local builds use, and the fallback if that var is unset.
+baseURL: "https://jasmine-portfolio.vercel.app/"
 defaultContentLanguage: "en"
 
 # pluralizeListTitles: "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles

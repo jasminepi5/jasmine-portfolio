@@ -1,0 +1,18 @@
+{{/* Vercel Web Analytics.
+
+  The /_vercel/insights/* routes only exist on Vercel deployments, so this is
+  limited to production builds - otherwise `hugo server` logs a 404 for the
+  script on every page load.
+
+  Web Analytics must also be switched on in the Vercel project settings; the
+  script is inert until it is. */}}
+{{ if hugo.IsProduction }}
+  <script>
+    window.va =
+      window.va ||
+      function () {
+        (window.vaq = window.vaq || []).push(arguments);
+      };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+{{ end }}

@@ -2,13 +2,21 @@
 
 Personal portfolio site for Jasmine Irawan — a Melbourne-based software developer and Monash University Computer Science graduate.
 
-**Live site:** <https://jasminepi5.github.io/jasmine-portfolio/>
+**Live site:** <https://jasmine-portfolio.vercel.app/>
 
 ## Stack
 
 - [Hugo](https://gohugo.io/) (extended edition) — static site generator
 - [Blowfish](https://github.com/nunocoracao/blowfish) — theme, included as a git submodule
-- GitHub Actions → GitHub Pages — build and deploy on every push to `main`
+- [Vercel](https://vercel.com/) — hosting, with a deploy on every push to `main` and a
+  preview deployment for every branch
+
+Build settings live in `vercel.json`. The production `baseURL` is derived from Vercel's
+`VERCEL_PROJECT_PRODUCTION_URL` at build time, so attaching a custom domain later needs
+no config change.
+
+A GitHub Actions workflow for GitHub Pages is kept at `.github/workflows/hugo.yaml` as a
+manual fallback. It no longer runs on push — trigger it from the Actions tab if needed.
 
 ## Running locally
 

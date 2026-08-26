@@ -1,6 +1,0 @@
-[submodule "jasmine-portfolio/themes/hugo-PaperMod"]
-	path = hugo-PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git
-[submodule "tailbliss"]
-	path = tailbliss
-	url = https://github.com/nusserstudios/tailbliss.git

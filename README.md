@@ -2,7 +2,7 @@
 
 Personal portfolio site for Jasmine Irawan — a Melbourne-based software developer and Monash University Computer Science graduate.
 
-**Live site:** <https://jasmine-portfolio.vercel.app/>
+**Live site:** <https://jasmine-portfolio-smoky.vercel.app/>
 
 ## Stack
 

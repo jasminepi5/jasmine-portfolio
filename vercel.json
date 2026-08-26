@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "hugo",
   "outputDirectory": "public",
-  "buildCommand": "hugo --gc --minify --baseURL \"https://${VERCEL_PROJECT_PRODUCTION_URL:-jasmine-portfolio.vercel.app}/\"",
+  "buildCommand": "hugo --gc --minify --baseURL \"https://${VERCEL_PROJECT_PRODUCTION_URL:-jasmine-portfolio-smoky.vercel.app}/\"",
   "build": {
     "env": {
       "HUGO_VERSION": "0.165.0"

@@ -1,17 +1,10 @@
 ---
 date: 2026-08-25
 draft: true
-showReadingTime: true
 showTableOfContents: true
-showPagination: true
-#   cover:
-#     image: "assets/mogo_placeholder.png"
-#     alt: "alt text"
-#     caption: "A screenshot of the app's home page."
 title: "Mogo: Android Ridesharing App 🚗"
 summary: "A university capstone Android ridesharing app for Monash students, with live location tracking and a Supabase backend."
 tags: ["Kotlin", "Android"]
-# weight: 10
 ---
 ## About the project
 

@@ -1,17 +1,10 @@
 ---
 date: 2026-08-25
 draft: true
-showReadingTime: true
 showTableOfContents: true
-showPagination: true
-#   cover:
-#     image: "assets/mogo_placeholder.png"
-#     alt: "alt text"
-#     caption: "A screenshot of the app's home page."
 title: "Superhero Tracker & Subscription Service"
 summary: "A fanmade website inspired by the game Dispatch, where users can subscribe to call in superheroes for help."
 tags: ["Web", "Figma"]
-# weight: 10
 ---
 ## About the project
 

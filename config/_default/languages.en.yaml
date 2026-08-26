@@ -11,7 +11,7 @@ params:
   dateFormat: "2 January 2006"
   # logo: "img/logo.png"
   # secondaryLogo: "img/secondary-logo.png"
-  # description: "My awesome website"
+  description: "Portfolio of Jasmine Irawan, a Melbourne-based software developer and Monash University Computer Science graduate working across web and Android."
   # copyright: "Copy, _right?_ :thinking_face:"
 
   author:

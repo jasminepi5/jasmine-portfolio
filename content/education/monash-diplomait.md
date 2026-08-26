@@ -1,17 +1,10 @@
 ---
 date: 2023-06-09
 draft: true
-showReadingTime: true
 showTableOfContents: true
-showPagination: true
-#   cover:
-#     image: "assets/mogo_placeholder.png"
-#     alt: "alt text"
-#     caption: "A screenshot of the app's home page."
 title: "Monash College | Diploma of Information Technology"
 summary: "Specialisation: Computer Science stream"
 tags: ["C++", "Python"]
-# weight: 10
 ---
 ## Overview
 

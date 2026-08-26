@@ -2,7 +2,7 @@ disabled: false
 locale: en
 label: English
 weight: 1
-title: "Welcome!"
+title: "Jasmine Irawan | Software Developer"
 
 params:
   displayName: EN
@@ -16,8 +16,8 @@ params:
 
   author:
     name: "Jasmine Irawan"
-    headline: "Hi 👋"
-    bio: "TODO: Add home info content here..."
+    headline: "Software Developer — Web & Android"
+    bio: "Melbourne-based Computer Science graduate (Monash University), building web and Android projects."
     links:
       - github: "https://github.com/TODO-add-username"
       - linkedin: "https://linkedin.com/in/TODO-add-username"

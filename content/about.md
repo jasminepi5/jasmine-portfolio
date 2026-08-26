@@ -2,10 +2,24 @@
 title: "About"
 ---
 
-I'm Jasmine Irawan, a Computer Science student and developer.
+I'm Jasmine Irawan, a Computer Science graduate from Monash University, based in Melbourne and happy to work across the CBD or inner suburbs. I have full Australian work rights through a 485 Temporary Graduate visa — no sponsorship required — and I'm available to start immediately.
 
-I started out with the Diploma of Information Technology (Computer Science stream) at Monash College, which gave me a pathway into the Bachelor of Computer Science at Monash University, where I'm majoring in Algorithms & Software (formerly known as Advanced Computer Science).
+My path into software started with the Diploma of Information Technology (Computer Science stream) at Monash College, which gave me a pathway into the Bachelor of Computer Science at Monash University, majoring in Algorithms & Software (formerly Advanced Computer Science) — completed July 2026, graduating October 2026.
 
-Outside of coursework, I like building side projects that solve real problems — from a ridesharing app to an e-commerce storefront for a small cookie business. I'm always looking for opportunities to learn new tools and take on interesting engineering challenges.
+I'm mainly interested in web and Android development. Alongside my degree, I've worked on a few personal and team projects — including a university capstone Android app, a fan project inspired by the game *Dispatch*, and a website for a family friend's home bakery — which you can read about on my [projects](/projects/) page.
 
-Have a look through my [projects](/projects/) and [education](/education/) pages, or get in touch via the links below.
+## Skills
+
+**Languages:** Kotlin · Java · Python · JavaScript/TypeScript · SQL · C++ (introductory)
+
+**Web & mobile:** Android (MVVM, Android Studio) · Angular · Node.js / Express.js · HTML/CSS
+
+**Databases:** PostgreSQL (Supabase) · MongoDB · Oracle SQL & PL/SQL · Firebase
+
+**Tools & practices:** Git, GitHub & GitLab · GitHub Actions (CI/CD) · Jira (Agile/Scrum, Kanban) · Postman · Figma · Lucidchart (UML/ERD) · Pytest
+
+**APIs & platforms:** Google Maps Platform (Routes, Places, Maps SDK) · Vercel · Supabase
+
+I've also brought AI coding assistants (Claude Code, ChatGPT) into my personal development workflow, alongside the tools above.
+
+Have a look through my [projects](/projects/), [education](/education/), and [certifications](/certifications/) pages, or get in touch via the links below.

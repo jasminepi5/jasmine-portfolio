@@ -18,7 +18,12 @@ I completed the Diploma of Information Technology at Monash College, specialisin
 
 ## What it covered
 
-The diploma provided a foundation in programming, computer systems, and IT fundamentals, and served as a direct pathway into the second year of a Bachelor of Computer Science at Monash University.
+The diploma introduced core programming and computer science fundamentals, including:
+
+- **Introductory C++ and OOP** — pointers, references, memory addresses, abstraction, inheritance, polymorphism, classes and objects (using Visual Studio).
+- **Introductory Python programming.**
+
+It also served as a direct pathway into the second year of a Bachelor of Computer Science at Monash University.
 
 ## Outcome
 

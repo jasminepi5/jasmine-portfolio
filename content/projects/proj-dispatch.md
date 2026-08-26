@@ -9,19 +9,17 @@ showPagination: true
 #     alt: "alt text"
 #     caption: "A screenshot of the app's home page."
 title: "Superhero Tracker & Subscription Service"
-summary: "A web app for tracking superheroes and managing subscription-based access to their profiles."
+summary: "A fanmade website inspired by the game Dispatch, where users can subscribe to call in superheroes for help."
 # weight: 10
 ---
 ## About the project
 
-Dispatch is a web application for tracking superheroes and managing subscription-based access to their profiles and activity.
+A personal, fan-made project inspired by the game *Dispatch* — a website where users can subscribe to a service that lets them call in superheroes to help with everything from fire emergencies to bodyguard duties, crime, and social work.
 
-## Key features
+## Status
 
-- A searchable directory of superheroes
-- Subscription/membership tiers for accessing extended profile data
-- CRUD-style management of hero records
+This project is a work in progress. I'm currently prototyping the design in Figma, with a fictional live map display planned for a future iteration.
 
 ## Tech stack
 
-_TODO: add the tools and frameworks used to build this project._
+VS Code · Git & GitHub (version control) · GitHub Actions & Vercel (CI/CD) · Figma (AI-assisted prototyping) · Claude Code (AI coding assistant)

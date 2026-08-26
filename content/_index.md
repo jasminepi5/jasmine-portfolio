@@ -2,6 +2,6 @@
 title: "Hi 👋"
 ---
 
-I'm Jasmine — a Computer Science student and developer building projects across web and mobile.
+I'm Jasmine Irawan — I've just completed a Bachelor of Computer Science at Monash University (graduating October 2026), majoring in Algorithms & Software, with a focus on web and Android development.
 
-I'm studying at Monash University, having come through Monash College's Diploma of Information Technology, and I like turning ideas into working software — from a ridesharing app to an e-commerce storefront. Take a look through my [projects](/projects/) and [education](/education/), or find out more [about me](/about/).
+I'm based in Melbourne with full Australian work rights (485 Temporary Graduate visa) and available now. Take a look through my [projects](/projects/) and [education](/education/), or find out more [about me](/about/).

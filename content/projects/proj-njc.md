@@ -9,19 +9,17 @@ showPagination: true
 #     alt: "alt text"
 #     caption: "A screenshot of the app's home page."
 title: "Nurul Jasmine Cookies E-commerce Website 🍪🌼"
-summary: "An e-commerce website for a small home-based cookie business."
+summary: "A website concept for a family-owned bakery, with online ordering, Indonesian payments, and bilingual support planned."
 # weight: 10
 ---
 ## About the project
 
-Nurul Jasmine Cookies is an e-commerce website built for a small home-based cookie business, giving customers a simple way to browse the menu and place orders online.
+A website for Nurul Jasmine Cookies, a small home-based bakery run by a family I know personally. The goal is to let customers browse the menu and place orders online.
 
-## Key features
+## Status
 
-- Product catalogue with cookie flavours and pricing
-- Shopping cart and checkout flow
-- A friendly, cookie-themed storefront
+Currently in the Figma prototyping stage. Planned features include an Indonesian payment integration and bilingual support (Indonesian and English).
 
 ## Tech stack
 
-_TODO: add the tools and frameworks used to build this project._
+VS Code · Git & GitHub (version control) · GitHub Actions & Vercel (CI/CD) · Figma (AI-assisted prototyping) · Claude Code (AI coding assistant)

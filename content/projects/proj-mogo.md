@@ -8,20 +8,26 @@ showPagination: true
 #     image: "assets/mogo_placeholder.png"
 #     alt: "alt text"
 #     caption: "A screenshot of the app's home page."
-title: "Mogo: Android Ridesharing Ap 🚗🌿"
-summary: "An Android ridesharing app concept focused on eco-friendly, carpool-style commuting."
+title: "Mogo: Android Ridesharing App 🚗"
+summary: "A university capstone Android ridesharing app for Monash students, with live location tracking and a Supabase backend."
 # weight: 10
 ---
 ## About the project
 
-Mogo is an Android ridesharing app concept designed to make everyday commuting greener by connecting drivers and passengers travelling similar routes.
+Mogo is an Android ridesharing app built for Monash University students, developed as my final-year Computer Science capstone project with a team of four.
 
-## Key features
+## How it works
 
-- Ride requests and matching between nearby drivers and passengers
-- Real-time trip tracking
-- A focus on carpool-style, eco-friendly commuting
+The app uses an MVVM architecture, with live location updates handled through consistent polling during an active ride — the rider's device detects and writes its location, and the driver's device reads it. Live tracking and routing are powered by the Google Maps Platform (Routes API, Places API, and Maps SDK for Android). Supabase (PostgreSQL) handles the database and authentication.
+
+## Process
+
+The team worked in Agile/Scrum sprints, tracking tasks on a Jira Kanban board, with GitHub for version control and GitHub Actions for CI/CD. Database schemas were designed collaboratively in Lucidchart before implementation.
+
+## Status
+
+The app isn't published to the Play Store — it was demoed by installing directly onto a device via USB debugging. I'm currently continuing the project solo, refactoring it to improve performance.
 
 ## Tech stack
 
-_TODO: add the tools and frameworks used to build this project._
+Kotlin · Android Studio · Supabase (PostgreSQL) · Google Maps Platform · GitHub Actions · Jira · Lucidchart

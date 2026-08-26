@@ -1,12 +1,9 @@
 ---
 date: 2023-06-09
 draft: true
-params:
-  author: Jasmine Irawan
-  ShowShareButtons: true
-  ShowReadingTime: true
-  ShowToc: true
-  ShowPostNavLinks: true
+showReadingTime: true
+showTableOfContents: true
+showPagination: true
 #   cover:
 #     image: "assets/mogo_placeholder.png"
 #     alt: "alt text"

@@ -1,0 +1,4 @@
+# Overrides config/_default/hugo.yaml when running in the "development"
+# environment (the default for `hugo server`), so drafts are visible locally
+# without affecting the production build that CI deploys.
+buildDrafts: true

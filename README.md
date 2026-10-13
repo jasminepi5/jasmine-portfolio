@@ -1,65 +1,63 @@
-# Portfolio Website
+# Astro Starter Kit: Blog
 
-Personal portfolio site for Jasmine Irawan — a Melbourne-based software developer and Monash University Computer Science graduate.
-
-**Live site:** <https://jasmine-portfolio-smoky.vercel.app/>
-
-## Stack
-
-- [Hugo](https://gohugo.io/) (extended edition) — static site generator
-- [Blowfish](https://github.com/nunocoracao/blowfish) — theme, included as a git submodule
-- [Vercel](https://vercel.com/) — hosting, with a deploy on every push to `main` and a
-  preview deployment for every branch
-
-Build settings live in `vercel.json`. The production `baseURL` is derived from Vercel's
-`VERCEL_PROJECT_PRODUCTION_URL` at build time, so attaching a custom domain later needs
-no config change.
-
-A GitHub Actions workflow for GitHub Pages is kept at `.github/workflows/hugo.yaml` as a
-manual fallback. It no longer runs on push — trigger it from the Actions tab if needed.
-
-## Running locally
-
-Requires the **extended** edition of Hugo (see the version range in `themes/blowfish/config.toml`).
-
-```bash
-git clone --recurse-submodules https://github.com/jasminepi5/jasmine-portfolio.git
-cd jasmine-portfolio
-hugo server
+```sh
+npm create astro@latest -- --template blog
 ```
 
-The site is then at <http://localhost:1313>.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-If you cloned without `--recurse-submodules`, fetch the theme with:
+Features:
 
-```bash
-git submodule update --init --recursive
-```
+- ✅ Minimal styling (make it your own!)
+- ✅ 100/100 Lighthouse performance
+- ✅ SEO-friendly with canonical URLs and Open Graph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-### Drafts
+## 🚀 Project Structure
 
-`hugo server` runs in Hugo's `development` environment, which picks up
-`config/development/hugo.yaml` and builds draft content. Production builds
-(`hugo`, and the GitHub Actions workflow) exclude drafts, so work in progress
-can sit in the repo without appearing on the live site.
-
-## Layout
+Inside of your Astro project, you'll see the following folders and files:
 
 ```text
-config/_default/    Site config, split by concern (hugo, params, menus, languages, markup)
-config/development/ Local-only overrides (draft visibility)
-content/            Markdown pages, YAML front matter
-  projects/         Project write-ups
-  education/        Education history
-assets/images/      Animated SVG background, Open Graph social card
-layouts/            Site-level template overrides that take precedence over the theme
-themes/blowfish/    Theme (git submodule — don't edit directly)
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-## Building
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-```bash
-hugo --gc --minify    # production build into public/
-```
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-`public/` is generated output and is not tracked; CI rebuilds it on every deploy.
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Credit
+
+This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).

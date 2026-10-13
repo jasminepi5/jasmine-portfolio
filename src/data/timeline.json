@@ -1,0 +1,30 @@
+[
+    {
+        "id": "monash-bcs",
+        "section": "Education",
+        "title": "Bachelor of Computer Science",
+        "organisation": "Monash University",
+        "extraDetails": "Major: Algorithms & Software (formerly called: Advanced Computer Science)",
+        "location":"Melbourne, VIC",
+        "startDate": "2023-07",
+        "endDate":"2026-07"
+    },
+    {
+        "id": "monash-dip-it",
+        "section": "Education",
+        "title": "Diploma of Information Technology",
+        "organisation": "Monash College",
+        "extraDetails": "Computer Science Stream",
+        "startDate": "2022",
+        "endDate":"2023"
+    },
+    {
+        "id": "cahayasumberlancar-intern",
+        "section": "Experience",
+        "title": "In-house Software Developer",
+        "organisation": "PT. Cahaya Sumber Lancar",
+        "extraDetails": "Internship",
+        "location":"Surabaya, Indonesia",
+        "startDate": "2026-08"
+    }
+]

@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+
+// Fetch all timeline entries, sort from most recent to oldest.
+const timelineItems = (await getCollection('timelineItems')).sort(
+	(a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+const educationItems = timelineItems.filter((item) => item.data.section === "Education");
+const experienceItems = timelineItems.filter((item) => item.data.section === "Experience");
+
+console.log(educationItems);
+console.log(experienceItems);
+---
+
+<Layout
+	title="About"
+	description="Lorem ipsum dolor sit amet"
+	pubDate={new Date('August 08 2021')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		I recently graduated with a Bachelor of Computer Science specializing in Algorithms & Software (formerly called: Advanced Computer Science).
+	</p>
+
+	
+</Layout>

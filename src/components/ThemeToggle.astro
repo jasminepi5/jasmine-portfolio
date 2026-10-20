@@ -1,0 +1,64 @@
+---
+import Icon from './Icon.astro';
+
+type Props = {
+	/** Radio group name. Must differ per instance (the header has one for desktop and one in the mobile sidebar). */
+	name: string;
+};
+
+const { name } = Astro.props;
+
+const options = [
+	{ value: 'light', label: 'Light', icon: 'lucide:sun' },
+	{ value: 'dark', label: 'Dark', icon: 'lucide:moon' },
+	{ value: 'system', label: 'System', icon: 'lucide:monitor' },
+] as const;
+---
+
+<!--
+	Light / Dark / System as icon radio buttons (keyboard and screen reader friendly), each with a CSS tooltip.
+	"System" clears the saved choice so the OS setting applies. The inline script in BaseHead.astro
+	applies the theme before first paint and defines window.applyTheme.
+-->
+<fieldset data-theme-toggle class="inline-flex rounded-lg border bg-muted p-0.5">
+	<legend class="sr-only">Colour theme</legend>
+	{
+		options.map(({ value, label, icon }) => (
+			<label
+				data-tooltip={label}
+				data-tooltip-align={value === 'system' ? 'end' : undefined}
+				class="flex size-7 cursor-pointer items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground has-checked:bg-background has-checked:text-link has-checked:shadow-xs has-focus-visible:ring-3 has-focus-visible:ring-ring/50"
+			>
+				<input type="radio" name={name} value={value} checked={value === 'system'} class="sr-only" />
+				<Icon name={icon} class="size-4" />
+				<span class="sr-only">{label}</span>
+			</label>
+		))
+	}
+</fieldset>
+
+<script>
+	// Astro bundles this once per page, so it handles every toggle on the page and keeps them in sync
+	const inputs = document.querySelectorAll<HTMLInputElement>('[data-theme-toggle] input');
+
+	function showSaved() {
+		let saved: string | null = null;
+		try {
+			saved = localStorage.getItem('theme');
+		} catch {}
+		const current = saved === 'light' || saved === 'dark' ? saved : 'system';
+		for (const input of inputs) input.checked = input.value === current;
+	}
+
+	showSaved();
+	for (const input of inputs) {
+		input.addEventListener('change', () => {
+			try {
+				if (input.value === 'system') localStorage.removeItem('theme');
+				else localStorage.setItem('theme', input.value);
+			} catch {}
+			window.applyTheme?.();
+			showSaved();
+		});
+	}
+</script>

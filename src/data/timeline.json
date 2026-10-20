@@ -5,9 +5,12 @@
         "title": "Bachelor of Computer Science",
         "organisation": "Monash University",
         "extraDetails": "Major: Algorithms & Software (formerly called: Advanced Computer Science)",
-        "location":"Melbourne, VIC",
+        "location": "Melbourne, VIC",
         "startDate": "2023-07",
-        "endDate":"2026-07"
+        "endDate": "2026-07",
+        "bulletPoints": [
+            "Relevant courses: Algorithms & Data Structures, Introduction to C++, Object-Oriented Programming, Functional Programming, Parallel Programming, Web & Mobile Development."
+        ]
     },
     {
         "id": "monash-dip-it",
@@ -16,7 +19,7 @@
         "organisation": "Monash College",
         "extraDetails": "Computer Science Stream",
         "startDate": "2022",
-        "endDate":"2023"
+        "endDate": "2023"
     },
     {
         "id": "cahayasumberlancar-intern",
@@ -24,7 +27,16 @@
         "title": "In-house Software Developer",
         "organisation": "PT. Cahaya Sumber Lancar",
         "extraDetails": "Internship",
-        "location":"Surabaya, Indonesia",
+        "location": "Surabaya, Indonesia",
+        "startDate": "2026-08"
+    },
+    {
+        "id": "tradeconn-intern",
+        "section": "Experience",
+        "title": "In-house Software Developer",
+        "organisation": "PT. Tradeconn",
+        "extraDetails": "Internship",
+        "location": "Surabaya, Indonesia",
         "startDate": "2026-08"
     }
 ]

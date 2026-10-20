@@ -1,88 +1,150 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
+import { buttonClass } from '@/lib/ui';
+import { GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from '../consts';
+import Icon from './Icon.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+const nav = [
+	{ href: '/', label: 'Home', icon: 'lucide:house' },
+	{ href: '/about', label: 'About', icon: 'lucide:user' },
+	{ href: '/projects', label: 'Projects', icon: 'lucide:folder-git-2' },
+	{ href: '/contact', label: 'Contact', icon: 'lucide:mail' },
+] as const;
+
+const social = [
+	{ href: LINKEDIN_URL, label: 'LinkedIn', icon: 'fa6-brands:linkedin' },
+	{ href: GITHUB_URL, label: 'GitHub', icon: 'simple-icons:github' },
+] as const;
+
+// "/projects/patroli/" counts as being in "/projects"; "/" only matches the home page
+const path = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/$/, '') : '/';
+const isActive = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`));
+
+const navLink = 'inline-flex items-center gap-2 rounded-lg px-2.5 transition-colors hover:bg-accent hover:text-foreground';
 ---
 
-<header>
-	<nav>
-		<h2>
-			<a href="/">{SITE_TITLE}</a>
-		</h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/projects">Projects</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-		</div>
-		<div class="social-links">
-			<a href="https://m.webtoo.ls/@astro" target="_blank">
-				<span class="sr-only">Follow Astro on Mastodon</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
-					<path
-						fill="currentColor"
-						d="M11.19 12.195c2.016-.24 3.77-1.475 3.99-2.603.348-1.778.32-4.339.32-4.339 0-3.47-2.286-4.488-2.286-4.488C12.062.238 10.083.017 8.027 0h-.05C5.92.017 3.942.238 2.79.765c0 0-2.285 1.017-2.285 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.626 6.74 3.78 7.57 1.454.383 2.703.463 3.709.408 1.823-.1 2.847-.647 2.847-.647l-.06-1.317s-1.303.41-2.767.36c-1.45-.05-2.98-.156-3.215-1.928a3.614 3.614 0 0 1-.033-.496s1.424.346 3.228.428c1.103.05 2.137-.064 3.188-.189zm1.613-2.47H11.13v-4.08c0-.859-.364-1.295-1.091-1.295-.804 0-1.207.517-1.207 1.541v2.233H7.168V5.89c0-1.024-.403-1.541-1.207-1.541-.727 0-1.091.436-1.091 1.296v4.079H3.197V5.522c0-.859.22-1.541.66-2.046.456-.505 1.052-.764 1.793-.764.856 0 1.504.328 1.933.983L8 4.39l.417-.695c.429-.655 1.077-.983 1.934-.983.74 0 1.336.259 1.791.764.442.505.661 1.187.661 2.046v4.203z"
-					></path>
-				</svg>
-			</a>
-			<a href="https://twitter.com/astrodotbuild" target="_blank">
-				<span class="sr-only">Follow Astro on Twitter</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
-					<path
-						fill="currentColor"
-						d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
-					></path>
-				</svg>
-			</a>
-			<a href="https://github.com/withastro/astro" target="_blank">
-				<span class="sr-only">Go to Astro's GitHub repo</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
-					<path
-						fill="currentColor"
-						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-					></path>
-				</svg>
-			</a>
-		</div>
-	</nav>
-</header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+<header class="sticky top-0 z-40 border-b bg-muted">
+	<div class="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+		<a href="/" class="font-bold whitespace-nowrap">{SITE_TITLE}</a>
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
-</style>
+		<!-- Desktop (lg and up) -->
+		<nav aria-label="Main" class="hidden flex-1 justify-center gap-1 lg:flex">
+			{
+				nav.map(({ href, label, icon }) => (
+					<a
+						href={href}
+						aria-current={isActive(href) ? 'page' : undefined}
+						class:list={[
+							navLink,
+							'h-8 text-sm',
+							isActive(href) ? 'bg-accent font-bold text-foreground' : 'text-muted-foreground',
+						]}
+					>
+						<Icon name={icon} class="size-4" />
+						{label}
+					</a>
+				))
+			}
+		</nav>
+
+		<div class="hidden items-center gap-1 lg:flex">
+			{
+				social.map(({ href, label, icon }) => (
+					<a
+						href={href}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={label}
+						data-tooltip={label}
+						class={buttonClass({ variant: 'ghost', size: 'icon' })}
+					>
+						<Icon name={icon} class="size-5" />
+					</a>
+				))
+			}
+			<span class="mx-2 h-5 w-px bg-border" aria-hidden="true"></span>
+			<ThemeToggle name="theme-desktop" />
+		</div>
+
+		<!-- Mobile: opens the sidebar below -->
+		<button
+			type="button"
+			data-menu-open
+			aria-label="Open menu"
+			aria-haspopup="dialog"
+			aria-controls="mobile-nav"
+			class:list={['ml-auto lg:hidden', buttonClass({ variant: 'ghost', size: 'icon-lg' })]}
+		>
+			<Icon name="lucide:menu" class="size-5" />
+		</button>
+	</div>
+</header>
+
+<!--
+	Mobile sidebar: a native <dialog> opened with showModal(), which gives focus trapping, Esc to close
+	and a backdrop for free. Slide-in animation and scroll lock are in global.css (.sheet).
+-->
+<dialog
+	id="mobile-nav"
+	aria-label="Site navigation"
+	class="sheet inset-y-0 right-0 left-auto m-0 h-dvh max-h-dvh w-72 max-w-[85vw] border-l bg-popover p-0 text-popover-foreground shadow-lg"
+>
+	<div class="flex h-full flex-col">
+		<div class="flex items-center justify-between border-b py-2 pr-2 pl-4">
+			<span class="font-bold">{SITE_TITLE}</span>
+			<button type="button" data-menu-close aria-label="Close menu" class={buttonClass({ variant: 'ghost', size: 'icon-lg' })}>
+				<Icon name="lucide:x" class="size-5" />
+			</button>
+		</div>
+
+		<nav aria-label="Main" class="flex flex-col gap-1 p-3">
+			{
+				nav.map(({ href, label, icon }) => (
+					<a
+						href={href}
+						aria-current={isActive(href) ? 'page' : undefined}
+						class:list={[
+							navLink,
+							'h-10',
+							isActive(href) ? 'bg-accent font-bold text-foreground' : 'text-muted-foreground',
+						]}
+					>
+						<Icon name={icon} class="size-4" />
+						{label}
+					</a>
+				))
+			}
+		</nav>
+
+		<!-- No hover on touch screens, so the sidebar shows labels next to the icons instead of tooltips -->
+		<div class="flex flex-col gap-1 border-t p-3">
+			{
+				social.map(({ href, label, icon }) => (
+					<a href={href} target="_blank" rel="noopener noreferrer" class:list={[navLink, 'h-10']}>
+						<Icon name={icon} class="size-4" />
+						{label}
+					</a>
+				))
+			}
+		</div>
+
+		<div class="mt-auto flex items-center justify-between border-t p-4">
+			<span class="text-sm text-muted-foreground">Theme</span>
+			<ThemeToggle name="theme-mobile" />
+		</div>
+	</div>
+</dialog>
+
+<script>
+	const dialog = document.getElementById('mobile-nav') as HTMLDialogElement;
+	document.querySelector('[data-menu-open]')?.addEventListener('click', () => dialog.showModal());
+	dialog.querySelector('[data-menu-close]')?.addEventListener('click', () => dialog.close());
+	// A click on the backdrop targets the <dialog> itself (the panel's content fills it edge to edge)
+	dialog.addEventListener('click', (event) => {
+		if (event.target === dialog) dialog.close();
+	});
+	// Close if the window is resized to desktop width while the sidebar is open
+	matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+		if (event.matches) dialog.close();
+	});
+</script>

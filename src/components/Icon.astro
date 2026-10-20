@@ -1,0 +1,40 @@
+---
+/**
+ * Inline SVG icon, rendered at build time (no client JS).
+ * Usage: <Icon name="lucide:house" class="size-4" />
+ * Sets: lucide (UI icons), ph (Phosphor, for icons Lucide lacks, e.g. hand-waving),
+ * simple-icons (tech/brand logos), fa6-brands (LinkedIn, which Simple Icons doesn't have).
+ * Browse names at https://icon-sets.iconify.design
+ * Decorative by default (aria-hidden); pass `label` when the icon is the only content and needs a name.
+ */
+import { getIconData, iconToSVG } from '@iconify/utils';
+import fa6Brands from '@iconify-json/fa6-brands/icons.json';
+import lucide from '@iconify-json/lucide/icons.json';
+import ph from '@iconify-json/ph/icons.json';
+import simpleIcons from '@iconify-json/simple-icons/icons.json';
+
+const sets = { lucide, ph, 'simple-icons': simpleIcons, 'fa6-brands': fa6Brands };
+
+type Props = {
+	name: `${keyof typeof sets}:${string}`;
+	class?: string;
+	label?: string;
+};
+
+const { name, class: className, label } = Astro.props;
+const [prefix, iconName] = name.split(':') as [keyof typeof sets, string];
+const data = getIconData(sets[prefix], iconName);
+if (!data) throw new Error(`Icon not found: ${name}`);
+
+// Default 1em size; Tailwind size-* classes override it
+const { attributes, body } = iconToSVG(data, { height: '1em' });
+---
+
+<svg
+	{...attributes}
+	class:list={['shrink-0', className]}
+	aria-hidden={label ? undefined : 'true'}
+	role={label ? 'img' : undefined}
+	aria-label={label}
+	set:html={body}
+/>

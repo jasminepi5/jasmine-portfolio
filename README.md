@@ -2,14 +2,14 @@
 
 My personal portfolio site: projects, education and experience, and how to contact me.
 
-**Live site:** <https://jasmine-portfolio-smoky.vercel.app/>
+**Live site:** <https://jasmineirawan.dev/>
 
 ## Stack
 
 - [Astro](https://astro.build/) static site with content collections for projects and the timeline
 - [Tailwind CSS](https://tailwindcss.com/) with colours based on GitHub's Primer themes (Light default and Dark default)
 - [Iconify](https://iconify.design/) icon sets (Lucide, Phosphor, Simple Icons, Font Awesome brands), inlined at build time
-- [Vercel](https://vercel.com/) hosting, with a preview deployment for every branch
+- [GitHub Pages](https://pages.github.com/) hosting, deployed by `.github/workflows/deploy.yml` on every push to `main`
 
 The site ships no UI framework. The few interactive parts (theme toggle, mobile sidebar, copy email button) are a native `<dialog>`, radio inputs and small vanilla scripts.
 

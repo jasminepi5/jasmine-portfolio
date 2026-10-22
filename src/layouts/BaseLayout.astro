@@ -8,15 +8,11 @@ type Props = {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
-	noIndex: boolean
+	/** Pages search engines should skip (e.g. the 404 page) */
+	noIndex?: boolean;
 };
 
-const { 
-	title, 
-	description, 
-	image,
-	noIndex
-} = Astro.props;
+const { title, description, image, noIndex } = Astro.props;
 ---
 
 <!doctype html>

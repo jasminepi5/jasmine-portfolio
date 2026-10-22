@@ -21,12 +21,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { 
-	title, 
-	description, 
-	image = FallbackImage,
-	noIndex = false
-} = Astro.props;
+const { title, description, image = FallbackImage, noIndex = false } = Astro.props;
 
 // Tells search engines who the site is about (can help a name search show this site)
 const personSchema = {
@@ -72,9 +67,6 @@ const personSchema = {
 
 <Font cssVariable="--font-atkinson" preload />
 
-<!-- Canonical URL
-<link rel="canonical" href={canonicalURL} /> -->
-
 <!-- Canonical URL (left out of noindex pages: the 404 page is served with a 404 status) -->
 {noIndex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 
@@ -84,9 +76,7 @@ const personSchema = {
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-
-<!-- <meta property="og:url" content={Astro.url} /> -->
- {!noIndex && <meta name="og:url" content={Astro.url} />}
+{!noIndex && <meta property="og:url" content={Astro.url} />}
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

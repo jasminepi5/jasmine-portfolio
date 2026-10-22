@@ -1,5 +1,4 @@
 # Type-checks, builds and link-checks the site on every push and pull request.
-# Vercel does the actual deploy; this catches broken builds and dead links before they get there.
 name: CI
 
 on:

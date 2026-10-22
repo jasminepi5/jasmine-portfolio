@@ -17,7 +17,7 @@
         "section": "Education",
         "title": "Diploma of Information Technology",
         "organisation": "Monash College",
-        "extraDetails": "Computer Science Stream",
+        "extraDetails": "Bachelor of Computer Science Stream",
         "location": "Jakarta, Indonesia",
         "startDate": "2022",
         "endDate": "2023",
@@ -30,39 +30,12 @@
         "section": "Experience",
         "title": "Software Developer (Web Application)",
         "organisation": "PT. Cahaya Sumber Lancar",
-        "extraDetails": "Internship",
+        "extraDetails": "Freelance",
         "location": "Surabaya, Indonesia (Remote)",
         "startDate": "2026-08",
         "bulletPoints": [
-            "Digitalize security guard patrol checkpoint tracking, create supervisor dashboard.",
-            "Automated inventory tracking & record keeping."
-            
-        ]
-    },
-    {
-        "id": "tradeconn-intern",
-        "section": "Experience",
-        "title": "Software Developer (Android)",
-        "organisation": "PT. Tradeconn",
-        "extraDetails": "Internship",
-        "location": "Surabaya, Indonesia (Remote/Online)",
-        "startDate": "2026-10",
-        "bulletPoints": [
-            "",
-            ""
-        ]
-    },
-    {
-        "id": "localbakery-indo",
-        "section": "Experience",
-        "title": "Software Developer (Web)",
-        "organisation": "Nurul Cookies",
-        "extraDetails": "Volunteer",
-        "location": "Surabaya, Indonesia (Remote/Online)",
-        "startDate": "2026-10",
-        "endDate": "2026-10",
-        "bulletPoints": [
-            "Created a portfolio website for a local bakery."
+            "Built Patroli, a progressive web app for security guard patrols: guards scan a QR code at each checkpoint, and supervisors follow each round on a live dashboard.",
+            "Worked directly with the business owner on requirements, then took Patroli from screen design to deployment with Preact, TypeScript, Supabase (PostgreSQL) and Netlify."
         ]
     }
 ]

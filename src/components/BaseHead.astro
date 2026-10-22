@@ -11,11 +11,22 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+
+	/** 
+	 * For pages that should NOT be indexed (e.g. 404 not found).
+	 * These pages should NOT have canonical URL or og:url, and a robots noindex tag.
+	 */
+	noIndex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { 
+	title, 
+	description, 
+	image = FallbackImage,
+	noIndex = false
+} = Astro.props;
 
 // Tells search engines who the site is about (can help a name search show this site)
 const personSchema = {
@@ -61,8 +72,11 @@ const personSchema = {
 
 <Font cssVariable="--font-atkinson" preload />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<!-- Canonical URL
+<link rel="canonical" href={canonicalURL} /> -->
+
+<!-- Canonical URL (left out of noindex pages: the 404 page is served with a 404 status) -->
+{noIndex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -70,7 +84,10 @@ const personSchema = {
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+
+<!-- <meta property="og:url" content={Astro.url} /> -->
+ {!noIndex && <meta name="og:url" content={Astro.url} />}
+
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image.src, Astro.url)} />

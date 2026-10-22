@@ -8,15 +8,21 @@ type Props = {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	noIndex: boolean
 };
 
-const { title, description, image } = Astro.props;
+const { 
+	title, 
+	description, 
+	image,
+	noIndex
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={image} />
+		<BaseHead title={title} description={description} image={image} noIndex={noIndex} />
 	</head>
 	<body class="flex min-h-screen flex-col">
 		<!-- First thing a keyboard user reaches: jumps past the header links. Hidden until focused. -->

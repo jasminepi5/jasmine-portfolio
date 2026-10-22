@@ -5,26 +5,37 @@
         "title": "Bachelor of Computer Science",
         "organisation": "Monash University",
         "extraDetails": "Major: Algorithms & Software (formerly called: Advanced Computer Science)",
-        "location":"Melbourne, VIC",
+        "location": "Melbourne, VIC",
         "startDate": "2023-07",
-        "endDate":"2026-07"
+        "endDate": "2026-07",
+        "bulletPoints": [
+            "Relevant courses: Algorithms & Data Structures, Theory of Computation, Object-Oriented Programming (Java), Databases (Oracle, SQL), Functional Programming (TypeScript, Haskell), Parallel Programming (C, C++), Web Development (TypeScript, JavaScript), Android Development (Kotlin), Software Engineering Process & Management."
+        ]
     },
     {
         "id": "monash-dip-it",
         "section": "Education",
         "title": "Diploma of Information Technology",
         "organisation": "Monash College",
-        "extraDetails": "Computer Science Stream",
+        "extraDetails": "Bachelor of Computer Science Stream",
+        "location": "Jakarta, Indonesia",
         "startDate": "2022",
-        "endDate":"2023"
+        "endDate": "2023",
+        "bulletPoints": [
+            "Relevant courses: C++ Fundamentals, Introduction to Programming (Python), Professional Practice, Discrete Mathematics, Continuous Mathematics."
+        ]
     },
     {
         "id": "cahayasumberlancar-intern",
         "section": "Experience",
-        "title": "In-house Software Developer",
+        "title": "Software Developer (Web Application)",
         "organisation": "PT. Cahaya Sumber Lancar",
-        "extraDetails": "Internship",
-        "location":"Surabaya, Indonesia",
-        "startDate": "2026-08"
+        "extraDetails": "Freelance",
+        "location": "Surabaya, Indonesia (Remote)",
+        "startDate": "2026-08",
+        "bulletPoints": [
+            "Built Patroli, a progressive web app for security guard patrols: guards scan a QR code at each checkpoint, and supervisors follow each round on a live dashboard.",
+            "Worked directly with the business owner on requirements, then took Patroli from screen design to deployment with Preact, TypeScript, Supabase (PostgreSQL) and Netlify."
+        ]
     }
 ]

@@ -1,28 +1,86 @@
 ---
 import { getCollection } from 'astro:content';
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import { buttonClass } from '@/lib/ui';
+import Icon from '../components/Icon.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+import { CV_FILENAME, CV_URL, SITE_TITLE } from '../consts';
+import { skillGroups } from '../data/skills';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Fetch all timeline entries, sort from most recent to oldest.
-const timelineItems = (await getCollection('timelineItems')).sort(
+// Newest first, then split by section (filter keeps the sorted order)
+const timelineItems = (await getCollection('timelineItem')).sort(
 	(a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
 );
-const educationItems = timelineItems.filter((item) => item.data.section === "Education");
-const experienceItems = timelineItems.filter((item) => item.data.section === "Experience");
-
-console.log(educationItems);
-console.log(experienceItems);
+const sections = [
+	{ title: 'Education', items: timelineItems.filter((item) => item.data.section === 'Education') },
+	{ title: 'Experience', items: timelineItems.filter((item) => item.data.section === 'Experience') },
+];
 ---
 
-<Layout
-	title="About"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		I recently graduated with a Bachelor of Computer Science specializing in Algorithms & Software (formerly called: Advanced Computer Science).
-	</p>
+<BaseLayout title={`About | ${SITE_TITLE}`} description="My education, experience and the tools I use.">
+	<div class="flex flex-wrap items-center justify-between gap-4">
+		<h1 class="text-3xl font-bold tracking-tight md:text-4xl">My Journey So Far</h1>
+		<a href={CV_URL} download={CV_FILENAME} class={buttonClass({ variant: 'outline', size: 'lg' })}>
+			<Icon name="lucide:download" />
+			Download CV
+		</a>
+	</div>
 
-	
-</Layout>
+	<!-- Intro -->
+	<div class="mt-6 max-w-prose space-y-4 leading-relaxed text-muted-foreground">
+		<p>
+			I'm a Computer Science graduate from Monash University, where I majored in Algorithms &amp;
+			Software. Before that, I completed a Diploma of Information Technology at Monash College.
+		</p>
+		<p>
+			I like building software that people use day to day, and I enjoy working across the stack, from
+			database design to the screens users actually see.
+		</p>
+	</div>
+
+	<section class="mt-14" aria-labelledby="skills-heading">
+		<h2 id="skills-heading" class="mb-6 border-b pb-3 text-sm font-bold tracking-widest text-muted-foreground uppercase">
+			Skills &amp; Tools
+		</h2>
+		<div class="grid gap-6 sm:grid-cols-3">
+			{
+				skillGroups.map((group) => (
+					<div>
+						<h3 class="mb-3 text-sm font-bold">{group.title}</h3>
+						<ul class="flex flex-wrap gap-2">
+							{group.skills.map(({ name, icon }) => (
+								<li>
+									<!-- Not focusable (it isn't interactive); screen readers read the name from aria-label -->
+									<span
+										role="img"
+										aria-label={name}
+										data-tooltip={name}
+										class="flex size-12 items-center justify-center rounded-lg border bg-card text-muted-foreground transition-colors hover:text-foreground"
+									>
+										<Icon name={icon} class="size-6" />
+									</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	{
+		sections.map(
+			({ title, items }) =>
+				items.length > 0 && (
+					<section class="mt-14">
+						<h2 class="mb-6 border-b pb-3 text-sm font-bold tracking-widest text-muted-foreground uppercase">{title}</h2>
+						<ol>
+							{items.map((item) => (
+								<TimelineItem {...item.data} />
+							))}
+						</ol>
+					</section>
+				),
+		)
+	}
+</BaseLayout>

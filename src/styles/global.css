@@ -1,141 +1,204 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* `dark:` utilities apply when <html> has .dark (set by the theme script in BaseHead.astro) */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+	--font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+	--font-heading: var(--font-sans);
+
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+	/* Text links: need more contrast than the filled-button blue in dark mode */
+	--color-link: var(--link);
+
+	--radius-sm: calc(var(--radius) * 0.6);
+	--radius-md: calc(var(--radius) * 0.8);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) * 1.4);
+	--radius-2xl: calc(var(--radius) * 1.8);
+	--radius-3xl: calc(var(--radius) * 2.2);
+	--radius-4xl: calc(var(--radius) * 2.6);
+}
+
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-
+  Colours follow GitHub's Primer tokens (@primer/primitives v10):
+  light = "Light default", dark = "Dark default".
+  Primer name in comments. All text pairs pass WCAG AA (4.5:1).
+*/
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+	--radius: 0.5rem;
+
+	--background: #ffffff; /* bgColor-default */
+	--foreground: #1f2328; /* fgColor-default */
+	--card: #ffffff;
+	--card-foreground: #1f2328;
+	--popover: #ffffff; /* overlay-bgColor */
+	--popover-foreground: #1f2328;
+	--primary: #0969da; /* bgColor-accent-emphasis */
+	--primary-foreground: #ffffff; /* fgColor-onEmphasis */
+	--secondary: #f6f8fa; /* bgColor-muted */
+	--secondary-foreground: #1f2328;
+	--muted: #f6f8fa; /* bgColor-muted */
+	--muted-foreground: #59636e; /* fgColor-muted */
+	--accent: #eff2f5; /* bgColor-neutral-muted, flattened onto white */
+	--accent-foreground: #1f2328;
+	--destructive: #d1242f; /* fgColor-danger */
+	--border: #d1d9e0; /* borderColor-default */
+	--input: #d1d9e0;
+	--ring: #0969da; /* focus-outlineColor */
+	--link: #0969da; /* fgColor-accent */
 }
-body {
-	font-family: var(--font-atkinson);
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+
+.dark {
+	color-scheme: dark;
+
+	--background: #0d1117; /* bgColor-default */
+	--foreground: #f0f6fc; /* fgColor-default */
+	--card: #0d1117;
+	--card-foreground: #f0f6fc;
+	--popover: #151b23; /* overlay-bgColor */
+	--popover-foreground: #f0f6fc;
+	--primary: #1f6feb; /* bgColor-accent-emphasis */
+	--primary-foreground: #ffffff; /* fgColor-onEmphasis */
+	--secondary: #151b23; /* bgColor-muted */
+	--secondary-foreground: #f0f6fc;
+	--muted: #151b23; /* bgColor-muted */
+	--muted-foreground: #9198a1; /* fgColor-muted */
+	--accent: #1f232a; /* bgColor-neutral-muted, flattened onto bgColor-default */
+	--accent-foreground: #f0f6fc;
+	--destructive: #f85149; /* fgColor-danger */
+	--border: #3d444d; /* borderColor-default */
+	--input: #3d444d;
+	--ring: #1f6feb; /* focus-outlineColor */
+	--link: #4493f8; /* fgColor-accent */
 }
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
-a {
-	color: var(--accent);
-}
-a:hover {
-	color: var(--accent);
-}
-p {
-	margin-bottom: 1em;
-}
-.prose p {
-	margin-bottom: 2em;
-}
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
-blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-}
-hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
 	}
-	main {
-		padding: 1em;
+	html {
+		@apply font-sans;
+		color-scheme: light;
+	}
+	body {
+		@apply bg-background text-foreground antialiased;
+	}
+	button:not(:disabled),
+	[role='button']:not(:disabled) {
+		cursor: pointer;
 	}
 }
 
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
+/* Markdown bodies (project pages) use @tailwindcss/typography, recoloured with the theme tokens */
+.prose {
+	--tw-prose-body: var(--foreground);
+	--tw-prose-headings: var(--foreground);
+	--tw-prose-lead: var(--muted-foreground);
+	--tw-prose-links: var(--link);
+	--tw-prose-bold: var(--foreground);
+	--tw-prose-counters: var(--muted-foreground);
+	--tw-prose-bullets: var(--muted-foreground);
+	--tw-prose-hr: var(--border);
+	--tw-prose-quotes: var(--foreground);
+	--tw-prose-quote-borders: var(--border);
+	--tw-prose-captions: var(--muted-foreground);
+	--tw-prose-code: var(--foreground);
+	--tw-prose-pre-code: var(--foreground);
+	--tw-prose-pre-bg: var(--muted);
+	--tw-prose-th-borders: var(--border);
+	--tw-prose-td-borders: var(--border);
+}
+
+/*
+  CSS-only tooltip for static (non-React) content: add data-tooltip="Label".
+  Uses display (not opacity) so a hidden tooltip near the screen edge can't cause sideways scrolling.
+  data-tooltip-align="end" right-aligns it.
+*/
+@layer components {
+	[data-tooltip] {
+		position: relative;
+	}
+	[data-tooltip]::after {
+		content: attr(data-tooltip);
+		@apply pointer-events-none absolute top-[calc(100%+6px)] left-1/2 z-50 hidden -translate-x-1/2 rounded-md bg-foreground px-3 py-1.5 text-xs font-normal whitespace-nowrap text-background;
+	}
+	/* Hover only on devices that really hover: on touch screens a tap "sticks" the hover and strands the tooltip */
+	@media (hover: hover) {
+		[data-tooltip]:hover::after {
+			@apply block;
+		}
+	}
+	[data-tooltip]:focus-visible::after,
+	[data-tooltip]:has(:focus-visible)::after {
+		@apply block;
+	}
+	[data-tooltip-align='end']::after {
+		@apply right-0 left-auto translate-x-0;
+	}
+}
+
+/*
+  Mobile sidebar (<dialog class="sheet"> in Header.astro): slides in from the right.
+  @starting-style + allow-discrete let the open/close animate even though <dialog> toggles display.
+*/
+@layer components {
+	.sheet {
+		translate: 100% 0;
+		transition:
+			translate 0.2s ease,
+			overlay 0.2s allow-discrete,
+			display 0.2s allow-discrete;
+	}
+	.sheet[open] {
+		translate: 0 0;
+	}
+	@starting-style {
+		.sheet[open] {
+			translate: 100% 0;
+		}
+	}
+	.sheet::backdrop {
+		background: rgb(0 0 0 / 0);
+		transition:
+			background 0.2s,
+			overlay 0.2s allow-discrete,
+			display 0.2s allow-discrete;
+	}
+	.sheet[open]::backdrop {
+		background: rgb(0 0 0 / 0.4);
+	}
+	@starting-style {
+		.sheet[open]::backdrop {
+			background: rgb(0 0 0 / 0);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.sheet,
+		.sheet::backdrop {
+			transition: none;
+		}
+	}
+	/* Stop the page scrolling behind the open sidebar */
+	html:has(.sheet[open]) {
+		overflow: hidden;
+	}
 }

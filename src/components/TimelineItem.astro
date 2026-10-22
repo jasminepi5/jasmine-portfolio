@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+type Props = CollectionEntry<'timelineItem'>['data'];
+
+const { 
+	title, 
+	organisation, 
+	extraDetails, 
+	location, 
+	startDate, 
+	endDate, 
+	bulletPoints 
+} = Astro.props;
+
+// "Jul 2026" format, like the CV. timeZone UTC stops "2026-07" showing as "Jun 2026" in some timezones.
+const formatMonth = (date: Date) =>
+	date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+
+// Empty strings in bulletPoints would render as blank bullets
+const bullets = (bulletPoints ?? []).filter((point) => point.trim() !== '');
+---
+
+<!--
+	::before = the dot. ::after = the edge, from below this dot down to the next item's dot.
+	Dot is 14px wide at left 0 (centre 7px); edge is 2px wide at left 6px (centre 7px).
+	The last item has no edge (no line pointing to nothing).
+-->
+<li
+	class="relative pb-8 pl-8 before:absolute before:top-1.5 before:left-0 before:size-3.5 before:rounded-full before:border-2 before:border-primary before:bg-primary before:content-[''] after:absolute after:top-5 after:-bottom-1.5 after:left-1.5 after:w-0.5 after:bg-primary/40 after:content-[''] last:pb-0 last:after:hidden"
+>
+	<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+		<h3 class="text-base font-bold">{title}</h3>
+		<p class="text-sm whitespace-nowrap text-muted-foreground">
+			<time datetime={startDate.toISOString()}>{formatMonth(startDate)}</time>
+			{' — '}
+			{endDate ? <time datetime={endDate.toISOString()}>{formatMonth(endDate)}</time> : 'Present'}
+		</p>
+	</div>
+	<p class="mt-0.5 text-sm">
+		<span class="font-bold">{organisation}</span>
+		{location && <span class="text-muted-foreground"> — {location}</span>}
+	</p>
+	{extraDetails && <p class="mt-0.5 max-w-prose text-sm text-muted-foreground italic">{extraDetails}</p>}
+	{
+		bullets.length > 0 && (
+			<ul class="mt-2 max-w-prose list-disc space-y-1 pl-5 text-sm marker:text-muted-foreground">
+				{bullets.map((point) => (
+					<li>{point}</li>
+				))}
+			</ul>
+		)
+	}
+</li>

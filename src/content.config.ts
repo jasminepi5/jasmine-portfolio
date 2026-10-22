@@ -3,24 +3,8 @@ import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod'; // you don't need to install Zod as dependency thanks to Astro.
 
 
-const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
-	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-			heroImage: z.optional(image()),
-		}),
-});
-
 /**
  * Project schema for displaying individual projects in the project post.
- * Works similarly to blog posts in default templates.
  */
 const project = defineCollection({
 	// Load Markdown and MDX files in the `src/content/projects/` directory.
@@ -38,13 +22,17 @@ const project = defineCollection({
 			location: z.string().optional(),
 			techStack: z.array(z.string()),
 			githubLink: z.url().optional(),
-			liveDemoLink: z.url().optional()
+			liveDemoLink: z.url().optional(),
+			/** Hidden from production builds (still shown in `astro dev`) until the write-up is ready. */
+			draft: z.boolean().default(false),
+			/** Listed before non-featured projects, so a strong older project can lead. */
+			featured: z.boolean().default(false),
 		}),
 });
 
 // For now there's really only ever 2 section types for the About section timeline.
 const sectionTypes = ["Education", "Experience"] as const;
-const timelineItems = defineCollection({
+const timelineItem = defineCollection({
 	// We store timeline in just one JSON file (not multiple markdowns.)
 	loader: file('./src/data/timeline.json'),
 
@@ -78,8 +66,9 @@ const timelineItems = defineCollection({
 	}),
 });
 
-export const collections = { 
-	blog, 
+// To be able to use these collections in other parts of the project code,
+// export each of these collection.
+export const collections = {
 	project,
-	timelineItems
+	timelineItem
 };

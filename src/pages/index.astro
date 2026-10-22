@@ -1,28 +1,127 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { getPublishedProjects } from '@/lib/projects';
+import { buttonClass } from '@/lib/ui';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { GITHUB_URL, LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+// TODO: replace with a real photo of you (portrait works best; it's cropped to 4:5),
+// and change the <Image> alt below to "Jasmine Irawan"
+import profilePhoto from '../assets/profile-placeholder.png';
+
+// Featured first, then newest (drafts hidden in production)
+const recentProjects = (await getPublishedProjects()).slice(0, 3);
+
+const recentTimeline = (await getCollection('timelineItem'))
+	.sort((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf())
+	.slice(0, 3);
+
+const formatMonth = (date: Date) =>
+	date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+
+const iconLinks = [
+	{ href: LINKEDIN_URL, label: 'LinkedIn', icon: 'fa6-brands:linkedin' },
+	{ href: GITHUB_URL, label: 'GitHub', icon: 'simple-icons:github' },
+] as const;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<div>
-				<h1>Hi, I'm Jasmine!</h1>
-				<h4>Computer Science Graduate, Software Developer</h4>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<!-- Hero: centered intro while there's no photo.
+	     To bring the photo back, restore these section classes:
+	     grid items-center gap-8 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] md:gap-14
+	     and drop text-center / justify-center below -->
+	<section class="flex flex-col items-center text-center">
+		<!-- I'm camera shy -->
+		<!-- <Image
+			src={profilePhoto}
+			width={600}
+			alt=""
+			loading="eager"
+			class="aspect-4/5 w-44 rounded-xl border object-cover md:w-full"
+		/> -->
+		<div class="max-w-xl">
+			<h1 class="text-4xl font-bold tracking-tight md:text-5xl">Jasmine Irawan</h1>
+			<p class="mt-2 text-lg text-muted-foreground">Software Developer, Computer Science Graduate</p>
+			<!-- Draft intro: rewrite in your own words -->
+			<div class="mt-6 space-y-4 leading-relaxed">
+				<p>
+					I recently graduated from Monash University with a Bachelor of Computer Science, majoring in
+					Algorithms &amp; Software.
+				</p>
+				<p>
+					Most of my projects started with someone's real problem, like a business owner who needed to
+					check that their security guards actually completed their patrols. I'm now looking for a
+					graduate software developer role in Melbourne.
+				</p>
 			</div>
-	
-			<p>
-				Welcome to my portfolio!
-			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-2">
+				<a href="/contact" class={buttonClass({ size: 'lg' })}>
+					Get in touch
+					<Icon name="ph:hand-waving" class="size-4.5" />
+				</a>
+				{
+					iconLinks.map(({ href, label, icon }) => (
+						<a
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={label}
+							data-tooltip={label}
+							class={buttonClass({ variant: 'outline', size: 'icon-lg' })}
+						>
+							<Icon name={icon} class="size-5" />
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
 
-		</main>
-		<Footer />
-	</body>
-</html>
+	<section class="mt-20">
+		<div class="mb-6 flex flex-wrap items-baseline justify-between gap-2 border-b pb-3">
+			<h2 class="text-2xl font-bold tracking-tight">What I've Worked On</h2>
+			<a href="/projects/" class="inline-flex items-center gap-1 text-sm text-link hover:underline">
+				All projects <Icon name="lucide:arrow-right" class="size-4" />
+			</a>
+		</div>
+		<ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				recentProjects.map((project) => (
+					<li>
+						<ProjectCard project={project} eager />
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="mt-20">
+		<div class="mb-6 flex flex-wrap items-baseline justify-between gap-2 border-b pb-3">
+			<h2 class="text-2xl font-bold tracking-tight">Experience &amp; Education</h2>
+			<a href="/about/" class="inline-flex items-center gap-1 text-sm text-link hover:underline">
+				Full journey <Icon name="lucide:arrow-right" class="size-4" />
+			</a>
+		</div>
+		<!-- GitHub-style list box: one bordered container, rows split by dividers -->
+		<ul class="divide-y rounded-xl border">
+			{
+				recentTimeline.map(({ data }) => (
+					<li class="flex flex-col gap-0.5 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+						<div>
+							<p class="font-bold">{data.title}</p>
+							<p class="text-sm text-muted-foreground">
+								{data.organisation}
+								{data.extraDetails && ` — ${data.extraDetails}`}
+							</p>
+						</div>
+						<p class="text-sm whitespace-nowrap text-muted-foreground">
+							{formatMonth(data.startDate)} – {data.endDate ? formatMonth(data.endDate) : 'Present'}
+						</p>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BaseLayout>

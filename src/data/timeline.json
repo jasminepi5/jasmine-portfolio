@@ -9,7 +9,7 @@
         "startDate": "2023-07",
         "endDate": "2026-07",
         "bulletPoints": [
-            "Relevant courses: Algorithms & Data Structures, Introduction to C++, Object-Oriented Programming, Functional Programming, Parallel Programming, Web & Mobile Development."
+            "Relevant courses: Algorithms & Data Structures, Theory of Computation, Object-Oriented Programming (Java), Databases (Oracle, SQL), Functional Programming (TypeScript, Haskell), Parallel Programming (C, C++), Web Development (TypeScript, JavaScript), Android Development (Kotlin), Software Engineering Process & Management."
         ]
     },
     {
@@ -18,25 +18,51 @@
         "title": "Diploma of Information Technology",
         "organisation": "Monash College",
         "extraDetails": "Computer Science Stream",
+        "location": "Jakarta, Indonesia",
         "startDate": "2022",
-        "endDate": "2023"
+        "endDate": "2023",
+        "bulletPoints": [
+            "Relevant courses: C++ Fundamentals, Introduction to Programming (Python), Professional Practice, Discrete Mathematics, Continuous Mathematics."
+        ]
     },
     {
         "id": "cahayasumberlancar-intern",
         "section": "Experience",
-        "title": "In-house Software Developer",
+        "title": "Software Developer (Web Application)",
         "organisation": "PT. Cahaya Sumber Lancar",
         "extraDetails": "Internship",
-        "location": "Surabaya, Indonesia",
-        "startDate": "2026-08"
+        "location": "Surabaya, Indonesia (Remote)",
+        "startDate": "2026-08",
+        "bulletPoints": [
+            "Digitalize security guard patrol checkpoint tracking, create supervisor dashboard.",
+            "Automated inventory tracking & record keeping."
+            
+        ]
     },
     {
         "id": "tradeconn-intern",
         "section": "Experience",
-        "title": "In-house Software Developer",
+        "title": "Software Developer (Android)",
         "organisation": "PT. Tradeconn",
         "extraDetails": "Internship",
-        "location": "Surabaya, Indonesia",
-        "startDate": "2026-08"
+        "location": "Surabaya, Indonesia (Remote/Online)",
+        "startDate": "2026-10",
+        "bulletPoints": [
+            "",
+            ""
+        ]
+    },
+    {
+        "id": "localbakery-indo",
+        "section": "Experience",
+        "title": "Software Developer (Web)",
+        "organisation": "Nurul Cookies",
+        "extraDetails": "Volunteer",
+        "location": "Surabaya, Indonesia (Remote/Online)",
+        "startDate": "2026-10",
+        "endDate": "2026-10",
+        "bulletPoints": [
+            "Created a portfolio website for a local bakery."
+        ]
     }
 ]

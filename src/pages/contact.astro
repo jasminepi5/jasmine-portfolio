@@ -8,9 +8,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const displayUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
 
 const links = [
-	{ label: 'Email', icon: 'lucide:mail', href: `mailto:${EMAIL}`, text: EMAIL, external: false },
-	{ label: 'LinkedIn', icon: 'fa6-brands:linkedin', href: LINKEDIN_URL, text: displayUrl(LINKEDIN_URL), external: true },
-	{ label: 'GitHub', icon: 'simple-icons:github', href: GITHUB_URL, text: displayUrl(GITHUB_URL), external: true },
+	{ 
+		label: 'Email', 
+		icon: 'lucide:mail', 
+		href: `mailto:${EMAIL}`, 
+		text: EMAIL, 
+		external: false 
+	},
+	{ 
+		label: 'LinkedIn', 
+		icon: 'fa6-brands:linkedin', 
+		href: LINKEDIN_URL, 
+		text: displayUrl(LINKEDIN_URL), 
+		external: true 
+	},
+	{ 
+		label: 'GitHub', 
+		icon: 'simple-icons:github', 
+		href: GITHUB_URL, 
+		text: displayUrl(GITHUB_URL), 
+		external: true 
+	},
 ] as const;
 ---
 

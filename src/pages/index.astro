@@ -28,15 +28,19 @@ const iconLinks = [
 ---
 
 <BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<!-- Hero: photo beside the intro from md up, stacked on phones -->
-	<section class="grid items-center gap-8 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] md:gap-14">
-		<Image
+	<!-- Hero: centered intro while there's no photo.
+	     To bring the photo back, restore these section classes:
+	     grid items-center gap-8 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] md:gap-14
+	     and drop text-center / justify-center below -->
+	<section class="flex flex-col items-center text-center">
+		<!-- I'm camera shy -->
+		<!-- <Image
 			src={profilePhoto}
 			width={600}
 			alt=""
 			loading="eager"
 			class="aspect-4/5 w-44 rounded-xl border object-cover md:w-full"
-		/>
+		/> -->
 		<div class="max-w-xl">
 			<h1 class="text-4xl font-bold tracking-tight md:text-5xl">Jasmine Irawan</h1>
 			<p class="mt-2 text-lg text-muted-foreground">Software Developer, Computer Science Graduate</p>
@@ -52,7 +56,7 @@ const iconLinks = [
 					graduate software developer role in Melbourne.
 				</p>
 			</div>
-			<div class="mt-8 flex flex-wrap items-center gap-2">
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-2">
 				<a href="/contact" class={buttonClass({ size: 'lg' })}>
 					Get in touch
 					<Icon name="ph:hand-waving" class="size-4.5" />
@@ -109,7 +113,7 @@ const iconLinks = [
 							<p class="font-bold">{data.title}</p>
 							<p class="text-sm text-muted-foreground">
 								{data.organisation}
-								{data.extraDetails && ` · ${data.extraDetails}`}
+								{data.extraDetails && ` — ${data.extraDetails}`}
 							</p>
 						</div>
 						<p class="text-sm whitespace-nowrap text-muted-foreground">

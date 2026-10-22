@@ -1,7 +1,9 @@
 // Logos are rendered by src/components/Icon.astro. Most come from Simple Icons
 // (https://icon-sets.iconify.design/simple-icons/), added as "simple-icons:<name>".
+
 // Simple Icons doesn't carry some brands (e.g. Java), so those come from Font Awesome brands
 // (https://icon-sets.iconify.design/fa6-brands/) as "fa6-brands:<name>".
+
 // TODO: edit this list so it matches your CV.
 type LogoName = `${'simple-icons' | 'fa6-brands'}:${string}`;
 
@@ -22,7 +24,7 @@ export const skillGroups: { title: string; skills: { name: string; icon: LogoNam
 	{
 		title: 'Frameworks & libraries',
 		skills: [
-			{ name: 'React', icon: 'simple-icons:react' },
+			{ name: 'React.js', icon: 'simple-icons:react' },
 			{ name: 'Node.js', icon: 'simple-icons:nodedotjs' },
 			{ name: 'Next.js', icon: 'simple-icons:nextdotjs' },
 			{ name: 'Preact', icon: 'simple-icons:preact' },

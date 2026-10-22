@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import { buttonClass } from '@/lib/ui';
 import Icon from '../components/Icon.astro';
 import TimelineItem from '../components/TimelineItem.astro';
-import { SITE_TITLE } from '../consts';
+import { CV_FILENAME, CV_URL, SITE_TITLE } from '../consts';
 import { skillGroups } from '../data/skills';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -20,17 +20,17 @@ const sections = [
 <BaseLayout title={`About | ${SITE_TITLE}`} description="My education, experience and the tools I use.">
 	<div class="flex flex-wrap items-center justify-between gap-4">
 		<h1 class="text-3xl font-bold tracking-tight md:text-4xl">My Journey So Far</h1>
-		<a href="/cv.pdf" download class={buttonClass({ variant: 'outline', size: 'lg' })}>
+		<a href={CV_URL} download={CV_FILENAME} class={buttonClass({ variant: 'outline', size: 'lg' })}>
 			<Icon name="lucide:download" />
 			Download CV
 		</a>
 	</div>
 
-	<!-- Draft intro: rewrite in your own words -->
+	<!-- Intro -->
 	<div class="mt-6 max-w-prose space-y-4 leading-relaxed text-muted-foreground">
 		<p>
 			I'm a Computer Science graduate from Monash University, where I majored in Algorithms &amp;
-			Software. Before that I completed a Diploma of Information Technology at Monash College.
+			Software. Before that, I completed a Diploma of Information Technology at Monash College.
 		</p>
 		<p>
 			I like building software that people use day to day, and I enjoy working across the stack, from

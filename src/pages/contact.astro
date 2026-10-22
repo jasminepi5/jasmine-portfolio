@@ -1,7 +1,7 @@
 ---
 import { buttonClass } from '@/lib/ui';
 import Icon from '../components/Icon.astro';
-import { EMAIL, GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from '../consts';
+import { CV_FILENAME, CV_URL, EMAIL, GITHUB_URL, LINKEDIN_URL, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Show URLs without the protocol and trailing slash, e.g. "github.com/jasminepi5"
@@ -75,7 +75,7 @@ const links = [
 			}
 		</ul>
 
-		<a href="/cv.pdf" download class:list={['mt-8', buttonClass({ variant: 'outline', size: 'lg' })]}>
+		<a href={CV_URL} download={CV_FILENAME} class:list={['mt-8', buttonClass({ variant: 'outline', size: 'lg' })]}>
 			<Icon name="lucide:download" />
 			Download CV
 		</a>

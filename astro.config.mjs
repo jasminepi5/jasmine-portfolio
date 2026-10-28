@@ -5,9 +5,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 
-
 import tailwindcss from "@tailwindcss/vite";
-
 
 // Note: Table of content default/plain format didn't look nice it was just bullet points.
 // import remarkToc from "remark-toc";
@@ -41,6 +39,15 @@ export default defineConfig({
               ],
           },
       },
+      {
+        provider: fontProviders.fontsource(),
+        name: "Montserrat",
+        cssVariable: "--font-montserrat",
+        fallbacks: ["sans-serif"],
+
+        // Only 400 is downloaded by default; the rest cover font-medium/bold and prose headings (600/800)
+        weights: [400, 500, 600, 700, 800],
+      }
 	],
 
   vite: {

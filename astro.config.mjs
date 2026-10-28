@@ -5,11 +5,17 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
 
+
 import tailwindcss from "@tailwindcss/vite";
+
+
+// Note: Table of content default/plain format didn't look nice it was just bullet points.
+// import remarkToc from "remark-toc";
+// import { unified } from "@astrojs/markdown-remark";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jasmineirawan.dev",
+  site: "https://jasmineirawan.dev", // can't believe I actually bought a domain name off of a registrar.
   integrations: [mdx(), sitemap()],
 
   fonts: [
@@ -40,4 +46,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  // markdown: {
+  //   processor: unified({
+  //     remarkPlugins: [remarkToc],
+  //   }),
+  // },
 });

@@ -24,10 +24,15 @@ const {
 ---
 
 <BaseLayout title={`${title} | ${SITE_TITLE}`} description={description} image={heroImage}>
+
+	<!-- BACK BUTTON TO ALL PROJECTS PAGE -->
+
 	<a href="/projects/" class="inline-flex items-center gap-1 text-sm text-link hover:underline">
 		<Icon name="lucide:arrow-left" class="size-4" />
 		All projects
 	</a>
+
+	<!-- TITLE, BRIEF DESCRIPTION, AND HERO IMAGE -->
 
 	<header class="mt-6">
 		<h1 class="text-3xl font-bold tracking-tight md:text-4xl">{title}</h1>
@@ -46,6 +51,8 @@ const {
 			/>
 		)
 	}
+
+	<!-- ABOUT SECTION (Type, Location, Dates published and updated, Tech Stack, Links (if any) ) -->
 
 	<!-- Like a GitHub repo page: write-up on the left, "About" sidebar on the right (above it on mobile) -->
 	<div class="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
@@ -74,6 +81,8 @@ const {
 						)
 					}
 				</dl>
+
+				<!-- TECH STACK CHIPS (i.e. list tools as chip components) -->
 
 				<h3 class="mt-5 text-sm font-bold">Tech stack</h3>
 				<ul class="mt-2 flex flex-wrap gap-1.5">

@@ -44,3 +44,5 @@ export const skillGroups: { title: string; skills: { name: string; icon: LogoNam
 		],
 	},
 ];
+
+// object list vs json for these things which one is better?

@@ -17,8 +17,11 @@ const {
 const formatMonth = (date: Date) =>
 	date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 
-// Empty strings in bulletPoints would render as blank bullets
-const bullets = (bulletPoints ?? []).filter((point) => point.trim() !== '');
+// A bullet is plain text, or a titled group with its own sub-list (e.g. "Relevant courses:").
+// Empty strings / empty groups would render as blank bullets
+const bullets = (bulletPoints ?? []).filter((point) =>
+	typeof point === 'string' ? point.trim() !== '' : point.contents.length > 0,
+);
 ---
 
 <!--
@@ -45,9 +48,20 @@ const bullets = (bulletPoints ?? []).filter((point) => point.trim() !== '');
 	{
 		bullets.length > 0 && (
 			<ul class="mt-2 max-w-prose list-disc space-y-1 pl-5 text-sm marker:text-muted-foreground">
-				{bullets.map((point) => (
-					<li>{point}</li>
-				))}
+				{bullets.map((point) =>
+					typeof point === 'string' ? (
+						<li>{point}</li>
+					) : (
+						<li>
+							{point.title}
+							<ul class="mt-1 list-[circle] space-y-0.5 pl-5">
+								{point.contents.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						</li>
+					),
+				)}
 			</ul>
 		)
 	}

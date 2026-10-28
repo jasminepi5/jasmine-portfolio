@@ -26,15 +26,28 @@ techStack: [
 # TODO: Update contents accordingly.
 ---
 
-## Background (What are we solving?)
+## Background
 
-A business owner once came up to me with a specific problem they wanted to solve: to easily monitor if the security guards they hired had actually completed their assigned patrols.
+A business owner once came up to me with a specific problem they wanted to solve: **to easily monitor if the security guards they hired had actually completed their assigned patrols**. Checking the CCTV everyday can be time-consuming, and guards might not always be truthful.
 
-Guards signed a paper logbook at each post. The owner only saw the logbook when it was collected at the end of the week, so a missed round could go unnoticed for days, and a signature didn't prove when someone had actually been there.
+They proposed a modernized version of the [Watchclock](https://en.wikipedia.org/wiki/Watchclock) system, which used to be popular before the rise in electronic systems. Briefly explained, this is how the original system worked:
+
+- Each guard would be given a mechanical clock inside a locked case. Inside it is a paper tape (or disc) that advances with time.
+- Each lock (or locked case) can only be opened using its corresponding key.
+- Each location (checkpoint) holds a unique key (commonly chained to the site).
+- Each key has its own embossed number or pattern.
+- A guard needs to use the keys to stamp the key's number onto the clock's paper tape, marking the current time position.
+- Supervisors (with the keys) regularly check the timestamps against the guards' assigned schedule.
 
 ## My Role
 
-I gathered requirements with the owner, designed the screens, built the frontend and the API, and set up the database and hosting.
+I worked with the owner to asses the situation, gather functional and non-functional requirements. Then, I planned and designed the platform, starting from UI/UX to how it connects to the database and hosting.
+
+<!-- I gathered requirements with the owner, designed the screens, built the frontend and the API, and set up the database and hosting. -->
+
+## Requirements (What are we solving?)
+
+TODO: UPDATEEE.
 
 ## Solution (What is Patroli?)
 
@@ -82,9 +95,5 @@ Some checkpoints sat in car parks and stairwells with no mobile signal, so scans
 The owner now checks patrols from the dashboard during the shift instead of waiting for the logbook, and can see straight away when a checkpoint has been missed.
 
 - Available on both light & dark mode.
-- Available on 2 languages (English & Bahasa Indonesia).
+- Available on 2 languages (English & Bahasa Indonesia/Indonesian Language).
 - Available on mobile and desktop (either as websites or installable applications).
-
-## What I Learned
-
-Most of the real requirements only came out once the owner and the guards tried an early version. Building something small and putting it in front of them quickly taught me more than any amount of planning up front.

@@ -39,13 +39,13 @@
         ]
     },
     {
-        "id": "cahayasumberlancar-intern",
+        "id": "kelapaasiaabadi-patroli",
         "section": "Experience",
         "title": "Software Developer (Web Application)",
-        "organisation": "PT. Cahaya Sumber Lancar",
+        "organisation": "PT Kelapa Asia Abadi",
         "extraDetails": "Volunteer",
         "location": "Surabaya, Indonesia (Remote)",
-        "startDate": "2026-08",
+        "startDate": "2026-09",
         "bulletPoints": [
             "Built Patroli, a progressive web app for security guard patrols: guards scan a QR code at each checkpoint, and supervisors follow each round on a live dashboard.",
             "Worked directly with the business owner on requirements, then took Patroli from screen design to deployment with Preact, TypeScript, Supabase (PostgreSQL) and Netlify."

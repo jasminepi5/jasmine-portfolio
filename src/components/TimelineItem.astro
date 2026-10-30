@@ -15,7 +15,11 @@ const {
 
 // "Jul 2026" format, like the CV. timeZone UTC stops "2026-07" showing as "Jun 2026" in some timezones.
 const formatMonth = (date: Date) =>
-	date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
+	date.toLocaleDateString('en-US', { 
+		month: 'short', 
+		year: 'numeric', 
+		timeZone: 'UTC' 
+	});
 
 // A bullet is plain text, or a titled group with its own sub-list (e.g. "Relevant courses:").
 // Empty strings / empty groups would render as blank bullets
@@ -34,16 +38,20 @@ const bullets = (bulletPoints ?? []).filter((point) =>
 >
 	<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
 		<h3 class="text-base font-bold">{title}</h3>
+
 		<p class="text-sm whitespace-nowrap text-muted-foreground">
 			<time datetime={startDate.toISOString()}>{formatMonth(startDate)}</time>
 			{' — '}
 			{endDate ? <time datetime={endDate.toISOString()}>{formatMonth(endDate)}</time> : 'Present'}
 		</p>
+		
 	</div>
+
 	<p class="mt-0.5 text-sm">
 		<span class="font-bold">{organisation}</span>
 		{location && <span class="text-muted-foreground"> — {location}</span>}
 	</p>
+
 	{extraDetails && <p class="mt-0.5 max-w-prose text-sm text-muted-foreground italic">{extraDetails}</p>}
 	{
 		bullets.length > 0 && (

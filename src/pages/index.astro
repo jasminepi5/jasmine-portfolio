@@ -5,7 +5,7 @@ import { getPublishedProjects } from '@/lib/projects';
 import { buttonClass } from '@/lib/ui';
 import Icon from '../components/Icon.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { GITHUB_URL, LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // TODO: replace with a real photo of you (portrait works best; it's cropped to 4:5),
@@ -77,6 +77,15 @@ const iconLinks = [
 						</a>
 					))
 				}
+				<a
+					href={CV_URL}
+					download={CV_FILENAME}
+					data-tooltip="Download as PDF"
+					class={buttonClass({ variant: 'outline', size: 'lg' })}
+				>
+					<Icon name="lucide:download" />
+					Download CV
+				</a>
 			</div>
 			
 		</div>

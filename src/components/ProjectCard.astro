@@ -53,6 +53,6 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3';
 		<p class="text-sm text-muted-foreground">{description}</p>
 		
 		<!-- Plain text, not chips: chips are kept for the project page's tech stack -->
-		<p class="mt-auto pt-3 text-xs text-muted-foreground">{techStack.join(' · ')}</p>
+		<p class="mt-auto pt-3 text-xs text-muted-foreground">{techStack.join(', ')}</p>
 	</div>
 </a>

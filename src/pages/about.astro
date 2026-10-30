@@ -18,25 +18,39 @@ const sections = [
 ---
 
 <BaseLayout title={`About | ${SITE_TITLE}`} description="My education, experience and the tools I use.">
+	
+	<!-- HEADER = H1 + DOWNLOAD CV BUTTON -->
+	
 	<div class="flex flex-wrap items-center justify-between gap-4">
+
 		<h1 class="text-3xl font-bold tracking-tight md:text-4xl">My Journey So Far</h1>
-		<a href={CV_URL} download={CV_FILENAME} class={buttonClass({ variant: 'outline', size: 'lg' })}>
+		
+		<a 
+		href={CV_URL} 
+		download={CV_FILENAME} 
+		class={buttonClass({ variant: 'outline', size: 'lg' })} 
+		data-tooltip="Download as PDF">
 			<Icon name="lucide:download" />
 			Download CV
 		</a>
 	</div>
 
-	<!-- Intro -->
+	<!-- INTRO PARAGRAPH(S) -->
+
 	<div class="mt-6 max-w-prose space-y-4 leading-relaxed text-muted-foreground">
 		<p>
 			I'm a Computer Science graduate from Monash University, where I majored in Algorithms &amp;
 			Software. Before that, I completed a Diploma of Information Technology at Monash College.
 		</p>
-		<p>
-			I like building software that people use day to day, and I enjoy working across the stack, from
-			database design to the screens users actually see.
-		</p>
+		<!-- <p>
+			Although my education background is mainly in Computer Science &amp; Software Engineering, 
+			I'm open to learning things	adjacent to <em>and</em> outside of my domain.
+		</p> -->
 	</div>
+
+	<!-- SKILLS AND TOOLS SECTION -->
+
+	<!-- Display skills and tools as icons (e.g. Python programming language has Python logo/icon) -->
 
 	<section class="mt-14" aria-labelledby="skills-heading">
 		<h2 id="skills-heading" class="mb-6 border-b pb-3 text-sm font-bold tracking-widest text-muted-foreground uppercase">
@@ -49,16 +63,12 @@ const sections = [
 						<h3 class="mb-3 text-sm font-bold">{group.title}</h3>
 						<ul class="flex flex-wrap gap-2">
 							{group.skills.map(({ name, icon }) => (
-								<li>
-									<!-- Not focusable (it isn't interactive); screen readers read the name from aria-label -->
-									<span
-										role="img"
-										aria-label={name}
-										data-tooltip={name}
-										class="flex size-12 items-center justify-center rounded-lg border bg-card text-muted-foreground transition-colors hover:text-foreground"
-									>
+								<li class="flex w-18 flex-col items-center gap-1 text-center">
+									<!-- Fixed width so wrapped names (e.g. "Android Studio") stay centred under the icon -->
+									<span class="flex size-12 items-center justify-center rounded-lg border bg-card text-muted-foreground">
 										<Icon name={icon} class="size-6" />
 									</span>
+									<span class="text-[11px] leading-tight text-muted-foreground">{name}</span>
 								</li>
 							))}
 						</ul>
@@ -67,6 +77,10 @@ const sections = [
 			}
 		</div>
 	</section>
+
+	<!-- TIMELINE SECTION -->
+
+	<!-- Displays timeline graph thingy like on LinkedIn -->
 
 	{
 		sections.map(

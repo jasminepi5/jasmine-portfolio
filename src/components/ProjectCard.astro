@@ -10,8 +10,20 @@ type Props = {
 	eager?: boolean;
 };
 
-const { project, headingLevel = 3, eager = false } = Astro.props;
-const { title, type, description, heroImage, techStack } = project.data;
+const { 
+	project, 
+	headingLevel = 3, 
+	eager = false 
+} = Astro.props;
+
+const { 
+	title, 
+	type, 
+	description, 
+	heroImage, 
+	techStack 
+} = project.data;
+
 const Heading = `h${headingLevel}` as 'h2' | 'h3';
 ---
 
@@ -33,10 +45,14 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3';
 		)
 	}
 	<div class="flex flex-1 flex-col gap-1.5 p-4">
+		<!-- E.g. Android Application, Progressive Web Application, etc. -->
 		<p class="text-xs text-muted-foreground">{type}</p>
+		
 		<Heading class="text-base font-bold group-hover:text-link group-hover:underline">{title}</Heading>
+		
 		<p class="text-sm text-muted-foreground">{description}</p>
+		
 		<!-- Plain text, not chips: chips are kept for the project page's tech stack -->
-		<p class="mt-auto pt-3 text-xs text-muted-foreground">{techStack.join(' · ')}</p>
+		<p class="mt-auto pt-3 text-xs text-muted-foreground">{techStack.join(', ')}</p>
 	</div>
 </a>

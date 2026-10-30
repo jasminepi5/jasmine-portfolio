@@ -1,15 +1,16 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { getPublishedProjects } from '@/lib/projects';
 import { buttonClass } from '@/lib/ui';
 import Icon from '../components/Icon.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { GITHUB_URL, LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
-// TODO: replace with a real photo of you (portrait works best; it's cropped to 4:5),
-// and change the <Image> alt below to "Jasmine Irawan"
-import profilePhoto from '../assets/profile-placeholder.png';
+
+// To add a photo (portrait works best; it's cropped to 4:5): put it in src/assets/, add
+//   import { Image } from 'astro:assets';
+//   import profilePhoto from '../assets/<your-photo>.png';
+// then uncomment the <Image> in the hero below and set its alt to "Jasmine Irawan".
 
 // Featured first, then newest (drafts hidden in production)
 const recentProjects = (await getPublishedProjects()).slice(0, 3);
@@ -44,18 +45,19 @@ const iconLinks = [
 		<div class="max-w-xl">
 			<h1 class="text-4xl font-bold tracking-tight md:text-5xl">Jasmine Irawan</h1>
 			<p class="mt-2 text-lg text-muted-foreground">Software Developer, Computer Science Graduate</p>
+			
 			<!-- Draft intro: rewrite in your own words -->
 			<div class="mt-6 space-y-4 leading-relaxed">
+				<p>Hello! Welcome to my portfolio website! 💻✨</p>
 				<p>
 					I recently graduated from Monash University with a Bachelor of Computer Science, majoring in
 					Algorithms &amp; Software.
 				</p>
 				<p>
-					Most of my projects started with someone's real problem, like a business owner who needed to
-					check that their security guards actually completed their patrols. I'm now looking for a
-					graduate software developer role in Melbourne.
+					I'm now looking for a graduate software developer role in Melbourne.
 				</p>
 			</div>
+			
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-2">
 				<a href="/contact" class={buttonClass({ size: 'lg' })}>
 					Get in touch
@@ -75,7 +77,17 @@ const iconLinks = [
 						</a>
 					))
 				}
+				<a
+					href={CV_URL}
+					download={CV_FILENAME}
+					data-tooltip="Download as PDF"
+					class={buttonClass({ variant: 'outline', size: 'lg' })}
+				>
+					<Icon name="lucide:download" />
+					Download CV
+				</a>
 			</div>
+			
 		</div>
 	</section>
 

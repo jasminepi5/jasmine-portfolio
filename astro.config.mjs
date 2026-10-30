@@ -7,37 +7,34 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
+// Note: Table of content default/plain format didn't look nice it was just bullet points.
+// import remarkToc from "remark-toc";
+// import { unified } from "@astrojs/markdown-remark";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://jasmineirawan.dev",
+  site: "https://jasmineirawan.dev", // can't believe I actually bought a domain name off of a registrar.
   integrations: [mdx(), sitemap()],
 
   fonts: [
       {
-          provider: fontProviders.local(),
-          name: "Atkinson",
-          cssVariable: "--font-atkinson",
-          fallbacks: ["sans-serif"],
-          options: {
-              variants: [
-                  {
-                      src: ["./src/assets/fonts/atkinson-regular.woff"],
-                      weight: 400,
-                      style: "normal",
-                      display: "swap",
-                  },
-                  {
-                      src: ["./src/assets/fonts/atkinson-bold.woff"],
-                      weight: 700,
-                      style: "normal",
-                      display: "swap",
-                  },
-              ],
-          },
-      },
+        provider: fontProviders.fontsource(),
+        name: "Montserrat",
+        cssVariable: "--font-montserrat",
+        fallbacks: ["sans-serif"],
+
+        // Only 400 is downloaded by default; the rest cover font-medium/bold and prose headings (600/800)
+        weights: [400, 500, 600, 700, 800],
+      }
 	],
 
   vite: {
     plugins: [tailwindcss()],
   },
+
+  // markdown: {
+  //   processor: unified({
+  //     remarkPlugins: [remarkToc],
+  //   }),
+  // },
 });

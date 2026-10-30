@@ -10,13 +10,17 @@ const projects = await getPublishedProjects();
 
 <BaseLayout title={`Projects | ${SITE_TITLE}`} description="Software projects I've built.">
 	<h1 class="text-3xl font-bold tracking-tight md:text-4xl">Projects</h1>
+	
 	<p class="mt-2 text-muted-foreground">
-		Tools I've built so far ranging from university coursework &amp; hobby projects to work for real clients.</p>
+		Projects I've done so far, from a university team project to an app for a real business.
+	</p>
+
 	<ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 		{
-			projects.map((project) => (
+			projects.map((project, index) => (
 				<li>
-					<ProjectCard project={project} headingLevel={2} />
+					<!-- The first row is on screen at load, so its images load straight away -->
+					<ProjectCard project={project} headingLevel={2} eager={index < 3} />
 				</li>
 			))
 		}

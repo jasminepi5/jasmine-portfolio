@@ -4,12 +4,25 @@
         "section": "Education",
         "title": "Bachelor of Computer Science",
         "organisation": "Monash University",
-        "extraDetails": "Major: Algorithms & Software (formerly called: Advanced Computer Science)",
+        "extraDetails": "Specialisation: Algorithms & Software",
         "location": "Melbourne, VIC",
         "startDate": "2023-07",
         "endDate": "2026-07",
         "bulletPoints": [
-            "Relevant courses: Algorithms & Data Structures, Theory of Computation, Object-Oriented Programming (Java), Databases (Oracle, SQL), Functional Programming (TypeScript, Haskell), Parallel Programming (C, C++), Web Development (TypeScript, JavaScript), Android Development (Kotlin), Software Engineering Process & Management."
+            {
+                "title": "Relevant courses:",
+                "contents": [
+                    "Algorithms & Data Structures (Python)",
+                    "Theory of Computation",
+                    "Object-Oriented Programming (Java)",
+                    "Databases (SQL, Oracle Data Modeler, MongoDB)",
+                    "Functional Programming (TypeScript, Haskell)",
+                    "Parallel Programming (C, C++)",
+                    "Web Development (TypeScript, JavaScript, Postman, MongoDB, Firebase)",
+                    "Android Development (Kotlin, Jetpack Compose, Android Studio)",
+                    "Software Engineering Process & Management (Jira)"
+                ]
+            }
         ]
     },
     {
@@ -17,7 +30,7 @@
         "section": "Education",
         "title": "Diploma of Information Technology",
         "organisation": "Monash College",
-        "extraDetails": "Bachelor of Computer Science Stream",
+        "extraDetails": "Computer Science Stream",
         "location": "Jakarta, Indonesia",
         "startDate": "2022-11",
         "endDate": "2023-06",
@@ -26,13 +39,13 @@
         ]
     },
     {
-        "id": "cahayasumberlancar-intern",
+        "id": "kelapaasiaabadi-patroli",
         "section": "Experience",
         "title": "Software Developer (Web Application)",
-        "organisation": "PT. Cahaya Sumber Lancar",
-        "extraDetails": "Freelance",
+        "organisation": "PT Kelapa Asia Abadi",
+        "extraDetails": "Volunteer",
         "location": "Surabaya, Indonesia (Remote)",
-        "startDate": "2026-08",
+        "startDate": "2026-09",
         "bulletPoints": [
             "Built Patroli, a progressive web app for security guard patrols: guards scan a QR code at each checkpoint, and supervisors follow each round on a live dashboard.",
             "Worked directly with the business owner on requirements, then took Patroli from screen design to deployment with Preact, TypeScript, Supabase (PostgreSQL) and Netlify."

@@ -91,7 +91,7 @@ const timelineItem = defineCollection({
 
 /** Books I've read / found useful collection. For later updates. */
 const book = defineCollection({
-	// Load Markdown and MDX files in the `src/content/projects/` directory.
+	// Load Markdown and MDX files in the `src/content/books/` directory.
 	loader: glob({ base: './src/content/books', pattern: '**/*.{md,mdx}' }),
 
 	schema: ({ image }) =>
@@ -120,16 +120,14 @@ const blog = defineCollection({
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
 
 	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			overview: z.string().optional(),
+	schema: z.object({
+		title: z.string(),
+		overview: z.string().optional(),
 
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-
-		}),
+		// Transform string to Date object
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+	}),
 });
 
 // To be able to use these collections in other parts of the project code,
@@ -137,6 +135,9 @@ const blog = defineCollection({
 export const collections = {
 	project,
 	timelineItem,
-	book,
-	blog
+
+	// Add these back once src/content/books/ and src/content/blog/ have a post in them.
+	// An empty or missing folder makes every build and dev start print a glob-loader warning.
+	// book,
+	// blog
 };

@@ -15,16 +15,23 @@ const project = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			type: z.string(), // what kind of product (e.g. web-app, android, desktop, etc.)
+
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
+
+			// cover image
 			heroImage: z.optional(image()),
+			
+			/** E.g. <City>, <State> or <City>, <Country>. */
 			location: z.string().optional(),
 			techStack: z.array(z.string()),
 			githubLink: z.url().optional(),
 			liveDemoLink: z.url().optional(),
+
 			/** Hidden from production builds (still shown in `astro dev`) until the write-up is ready. */
 			draft: z.boolean().default(false),
+
 			/** Listed before non-featured projects, so a strong older project can lead. */
 			featured: z.boolean().default(false),
 		}),
@@ -83,7 +90,7 @@ const timelineItem = defineCollection({
 // When you get into the hang of it, this is lowkey fun lol. But it takes so much time, energy, and effort to learn a new tool :(
 
 /** Books I've read / found useful collection. For later updates. */
-const books = defineCollection({
+const book = defineCollection({
 	// Load Markdown and MDX files in the `src/content/projects/` directory.
 	loader: glob({ base: './src/content/books', pattern: '**/*.{md,mdx}' }),
 
@@ -103,8 +110,25 @@ const books = defineCollection({
 
 			review: z.string().optional()
 
-			// No need for synopsis or description. people can just search these online.
+			// No need for synopsis or description. People can just search these online.
 			// Assuming online records will still exist. Hopefully.
+		}),
+});
+
+const blog = defineCollection({
+	// Load Markdown and MDX files in the `src/content/blog/` directory.
+	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
+
+	// Type-check frontmatter using a schema
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			overview: z.string().optional(),
+
+			// Transform string to Date object
+			pubDate: z.coerce.date(),
+			updatedDate: z.coerce.date().optional(),
+
 		}),
 });
 
@@ -112,5 +136,7 @@ const books = defineCollection({
 // export each of these collection.
 export const collections = {
 	project,
-	timelineItem
+	timelineItem,
+	book,
+	blog
 };

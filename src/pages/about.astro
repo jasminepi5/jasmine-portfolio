@@ -63,16 +63,12 @@ const sections = [
 						<h3 class="mb-3 text-sm font-bold">{group.title}</h3>
 						<ul class="flex flex-wrap gap-2">
 							{group.skills.map(({ name, icon }) => (
-								<li>
-									<!-- Not focusable (it isn't interactive); screen readers read the name from aria-label -->
-									<span
-										role="img"
-										aria-label={name}
-										data-tooltip={name}
-										class="flex size-12 items-center justify-center rounded-lg border bg-card text-muted-foreground transition-colors hover:text-foreground"
-									>
+								<li class="flex w-18 flex-col items-center gap-1 text-center">
+									<!-- Fixed width so wrapped names (e.g. "Android Studio") stay centred under the icon -->
+									<span class="flex size-12 items-center justify-center rounded-lg border bg-card text-muted-foreground">
 										<Icon name={icon} class="size-6" />
 									</span>
+									<span class="text-[11px] leading-tight text-muted-foreground">{name}</span>
 								</li>
 							))}
 						</ul>

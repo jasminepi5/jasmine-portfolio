@@ -17,9 +17,10 @@ const projects = await getPublishedProjects();
 
 	<ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 		{
-			projects.map((project) => (
+			projects.map((project, index) => (
 				<li>
-					<ProjectCard project={project} headingLevel={2} />
+					<!-- The first row is on screen at load, so its images load straight away -->
+					<ProjectCard project={project} headingLevel={2} eager={index < 3} />
 				</li>
 			))
 		}

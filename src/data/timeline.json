@@ -4,7 +4,7 @@
         "section": "Education",
         "title": "Bachelor of Computer Science",
         "organisation": "Monash University",
-        "extraDetails": "Specialisation: Algorithms & Software (formerly called: Advanced Computer Science)",
+        "extraDetails": "Specialisation: Algorithms & Software",
         "location": "Melbourne, VIC",
         "startDate": "2023-07",
         "endDate": "2026-07",
@@ -15,23 +15,22 @@
                     "Algorithms & Data Structures (Python)",
                     "Theory of Computation",
                     "Object-Oriented Programming (Java)",
-                    "Databases (Oracle, SQL)",
+                    "Databases (SQL, Oracle Data Modeler, MongoDB)",
                     "Functional Programming (TypeScript, Haskell)",
                     "Parallel Programming (C, C++)",
-                    "Web Development (TypeScript, JavaScript, Postman, MongoDB)",
+                    "Web Development (TypeScript, JavaScript, Postman, MongoDB, Firebase)",
                     "Android Development (Kotlin, Jetpack Compose, Android Studio)",
-                    "Software Engineering Process & Management (Jira, Agile)"
+                    "Software Engineering Process & Management (Jira)"
                 ]
             }
         ]
-            
     },
     {
         "id": "monash-dip-it",
         "section": "Education",
         "title": "Diploma of Information Technology",
         "organisation": "Monash College",
-        "extraDetails": "Bachelor of Computer Science Stream",
+        "extraDetails": "Computer Science Stream",
         "location": "Jakarta, Indonesia",
         "startDate": "2022-11",
         "endDate": "2023-06",
@@ -44,7 +43,7 @@
         "section": "Experience",
         "title": "Software Developer (Web Application)",
         "organisation": "PT. Cahaya Sumber Lancar",
-        "extraDetails": "Freelance",
+        "extraDetails": "Volunteer",
         "location": "Surabaya, Indonesia (Remote)",
         "startDate": "2026-08",
         "bulletPoints": [

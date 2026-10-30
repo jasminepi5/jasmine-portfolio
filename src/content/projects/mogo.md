@@ -2,8 +2,8 @@
 title: 'Mogo'
 description: 'Monash-focused Android Ridesharing Application'
 type: 'Android App'
-pubDate: '25 Mar 2026'
-updatedDate: '13 Jul 2026'
+pubDate: '2026-03-25'
+updatedDate: '2026-07-13'
 heroImage: '../../assets/projects/mogo-images/mogo-cover-image.png'
 location: 'Melbourne, Australia'
 techStack: [

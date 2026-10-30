@@ -2,8 +2,8 @@
 title: 'Patroli'
 description: 'Security Guard Patrol Dashboard & QR-Code Checkpoints'
 type: 'Progressive Web-Application (PWA)'
-pubDate: '20 Aug 2026'
-updatedDate: '12 Oct 2026'
+pubDate: '2026-08-20'
+updatedDate: '2026-10-12'
 heroImage: '../../assets/projects/patroli-images/patroli-cover.png'
 location: 'Indonesia'
 techStack: [

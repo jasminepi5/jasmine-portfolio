@@ -16,7 +16,8 @@ const project = defineCollection({
 			description: z.string(),
 			type: z.string(), // what kind of product (e.g. web-app, android, desktop, etc.)
 
-			// Transform string to Date object
+			// Transform string to Date object.
+			// Use YYYY-MM-DD: it's read as UTC, so the date doesn't shift with the build machine's timezone.
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 

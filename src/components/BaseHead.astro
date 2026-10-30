@@ -66,7 +66,14 @@ const personSchema = {
 <link rel="sitemap" href="/sitemap-index.xml" />
 <meta name="generator" content={Astro.generator} />
 
-<Font cssVariable="--font-montserrat" preload />
+<!-- Preload only what every page uses (regular and bold, Latin); other weights and subsets load when needed -->
+<Font
+	cssVariable="--font-montserrat"
+	preload={[
+		{ weight: 400, style: 'normal', subset: 'latin' },
+		{ weight: 700, style: 'normal', subset: 'latin' },
+	]}
+/>
 
 <!-- Canonical URL (left out of noindex pages: the 404 page is served with a 404 status) -->
 {noIndex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}

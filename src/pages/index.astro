@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { getPublishedProjects } from '@/lib/projects';
 import { buttonClass } from '@/lib/ui';
@@ -8,9 +7,10 @@ import ProjectCard from '../components/ProjectCard.astro';
 import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// TODO: replace with a real photo of you (portrait works best; it's cropped to 4:5),
-// and change the <Image> alt below to "Jasmine Irawan"
-import profilePhoto from '../assets/profile-placeholder.png';
+// To add a photo (portrait works best; it's cropped to 4:5): put it in src/assets/, add
+//   import { Image } from 'astro:assets';
+//   import profilePhoto from '../assets/<your-photo>.png';
+// then uncomment the <Image> in the hero below and set its alt to "Jasmine Irawan".
 
 // Featured first, then newest (drafts hidden in production)
 const recentProjects = (await getPublishedProjects()).slice(0, 3);

@@ -21,6 +21,7 @@ const { title, description, image, noIndex } = Astro.props;
 		<BaseHead title={title} description={description} image={image} noIndex={noIndex} />
 	</head>
 	<body class="flex min-h-screen flex-col">
+
 		<!-- First thing a keyboard user reaches: jumps past the header links. Hidden until focused. -->
 		<a
 			href="#main"
@@ -28,11 +29,18 @@ const { title, description, image, noIndex } = Astro.props;
 		>
 			Skip to content
 		</a>
+
 		<Header />
 		<!-- Same max width and gutters as the header and footer, so all edges line up -->
 		<main id="main" class="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6 md:py-14 lg:px-8">
 			<slot />
 		</main>
+
 		<Footer />
+
+		<!-- Cloudflare Web Analytics -->
+		<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d6be61468bee4deb9be19742a861d82f"}'>
+		</script><!-- End Cloudflare Web Analytics -->
+
 	</body>
 </html>
